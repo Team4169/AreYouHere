@@ -9,12 +9,13 @@
 /* Begin PBXBuildFile section */
 		9C373F5F720CC46357603BF7 /* Pods_AreYouHere.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E89E57E3B17D0033A296F7F0 /* Pods_AreYouHere.framework */; };
 		C1277F491CB6C73D00F4B046 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1277F481CB6C73D00F4B046 /* AppDelegate.swift */; };
-		C1277F4B1CB6C73D00F4B046 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1277F4A1CB6C73D00F4B046 /* ViewController.swift */; };
 		C1277F4E1CB6C73D00F4B046 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1277F4C1CB6C73D00F4B046 /* Main.storyboard */; };
 		C1277F501CB6C73D00F4B046 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C1277F4F1CB6C73D00F4B046 /* Assets.xcassets */; };
 		C1277F531CB6C73D00F4B046 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1277F511CB6C73D00F4B046 /* LaunchScreen.storyboard */; };
 		C1277F5E1CB6C73D00F4B046 /* AreYouHereTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1277F5D1CB6C73D00F4B046 /* AreYouHereTests.swift */; };
 		C1277F691CB6C73D00F4B046 /* AreYouHereUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1277F681CB6C73D00F4B046 /* AreYouHereUITests.swift */; };
+		C1D008891CBD604D00EE89E4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D008881CBD604D00EE89E4 /* LoginViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		C1D0088B1CBD64CD00EE89E4 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D0088A1CBD64CD00EE89E4 /* DashboardViewController.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +40,6 @@
 		B1EEA4278B12C4F554A593FA /* Pods-AreYouHere.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AreYouHere.release.xcconfig"; path = "Pods/Target Support Files/Pods-AreYouHere/Pods-AreYouHere.release.xcconfig"; sourceTree = "<group>"; };
 		C1277F451CB6C73D00F4B046 /* AreYouHere.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AreYouHere.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1277F481CB6C73D00F4B046 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C1277F4A1CB6C73D00F4B046 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C1277F4D1CB6C73D00F4B046 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C1277F4F1CB6C73D00F4B046 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C1277F521CB6C73D00F4B046 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -50,6 +50,8 @@
 		C1277F641CB6C73D00F4B046 /* AreYouHereUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AreYouHereUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1277F681CB6C73D00F4B046 /* AreYouHereUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreYouHereUITests.swift; sourceTree = "<group>"; };
 		C1277F6A1CB6C73D00F4B046 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C1D008881CBD604D00EE89E4 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		C1D0088A1CBD64CD00EE89E4 /* DashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		E89E57E3B17D0033A296F7F0 /* Pods_AreYouHere.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AreYouHere.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -105,8 +107,9 @@
 			isa = PBXGroup;
 			children = (
 				C1277F481CB6C73D00F4B046 /* AppDelegate.swift */,
-				C1277F4A1CB6C73D00F4B046 /* ViewController.swift */,
 				C1277F4C1CB6C73D00F4B046 /* Main.storyboard */,
+				C1D0088A1CBD64CD00EE89E4 /* DashboardViewController.swift */,
+				C1D008881CBD604D00EE89E4 /* LoginViewController.swift */,
 				C1277F4F1CB6C73D00F4B046 /* Assets.xcassets */,
 				C1277F511CB6C73D00F4B046 /* LaunchScreen.storyboard */,
 				C1277F541CB6C73D00F4B046 /* Info.plist */,
@@ -333,7 +336,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C1277F4B1CB6C73D00F4B046 /* ViewController.swift in Sources */,
+				C1D008891CBD604D00EE89E4 /* LoginViewController.swift in Sources */,
+				C1D0088B1CBD64CD00EE89E4 /* DashboardViewController.swift in Sources */,
 				C1277F491CB6C73D00F4B046 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -481,6 +485,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.thatnerdjack.AreYouHere;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
 		};
@@ -493,6 +498,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.thatnerdjack.AreYouHere;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
 		};
