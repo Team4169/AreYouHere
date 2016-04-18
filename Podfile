@@ -4,10 +4,10 @@
  use_frameworks!
 
 target 'AreYouHere' do
-    pod 'Lock', '~> 1.22'
+    #pod 'Lock', '~> 1.22'
     pod 'Firebase', '>= 2.5.1'
-    pod 'SimpleKeychain'
-    pod 'RealmSwift'
+    #pod 'SimpleKeychain'
+    #pod 'RealmSwift'
 end
 
 target 'AreYouHereTests' do
