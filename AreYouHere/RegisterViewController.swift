@@ -9,6 +9,11 @@
 import UIKit
 
 class RegisterViewController: UIViewController {
+    @IBOutlet weak var nameField: UITextField!
+    @IBOutlet weak var emailField: UITextField!
+    @IBOutlet weak var passwordField: UITextField!
+    
+    let login = Login()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,15 +26,16 @@ class RegisterViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func hitGo(sender: AnyObject) {
+        login.createUser(emailField.text!, password: passwordField.text!, name: nameField.text!)
+        login.loginUser(emailField.text!, password: passwordField.text!)
+        if login.rootRef.authData != nil {
+            performSegueWithIdentifier("registerToDashboard", sender: nil)
+        } else {
+            let alert = UIAlertController(title: "Register Error", message: "Your account creation failed.", preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "Try Again", style: UIAlertActionStyle.Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
+        }
     }
-    */
-
+    
 }

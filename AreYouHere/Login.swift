@@ -9,7 +9,7 @@
 import Foundation
 import Firebase
 
-class Login {
+class Login : NSObject {
     let rootRef = Firebase(url: "http://areyouhere.firebaseio.com")
     
     func createUser(email: String, password: String, name: String) {
@@ -21,7 +21,7 @@ class Login {
                 print("Successfully created user account with uid: \(uid)")
                 
                 let newUserRef = self.rootRef.childByAppendingPath("users/\(email)")
-                var newUserData = ["uid":uid!, "name":name, "email":email]
+                let newUserData = ["uid":uid!, "name":name, "email":email]
                 newUserRef.setValue(newUserData)
             }
         })

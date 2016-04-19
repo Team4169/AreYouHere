@@ -13,15 +13,10 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     
-    var name: String!
+    let login = Login()
     
-    let rootRef = Firebase(url: "http://areyouhere.firebaseio.com")
-    let usersRef = Firebase(url: "http://areyouhere.firebaseio.com/users")
-
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -30,8 +25,8 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func hitLogin(sender: AnyObject) {
-        Login.loginUser(emailField.text!, password: passwordField.text!)
-        if self.rootRef.authData != nil {
+        self.login.loginUser(emailField.text!, password: passwordField.text!)
+        if login.rootRef.authData != nil {
             performSegueWithIdentifier("loginToDashboard", sender: nil)
         } else {
             let alert = UIAlertController(title: "Login Error", message: "Your login failed.", preferredStyle: UIAlertControllerStyle.Alert)

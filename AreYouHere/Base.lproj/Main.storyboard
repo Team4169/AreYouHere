@@ -39,8 +39,7 @@
                                 <rect key="frame" x="338" y="398" width="57" height="30"/>
                                 <state key="normal" title="Register"/>
                                 <connections>
-                                    <action selector="hitRegister:" destination="DOH-er-g5c" eventType="touchUpInside" id="FW1-gC-muy"/>
-                                    <segue destination="oBH-fF-tcN" kind="show" identifier="loginToRegister" id="wgA-ZQ-aqu"/>
+                                    <segue destination="oBH-fF-tcN" kind="show" id="qIV-JJ-w3M"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gxw-UR-UnO">
@@ -99,6 +98,7 @@
                                 <rect key="frame" x="110" y="194" width="104" height="30"/>
                                 <state key="normal" title="Manage Teams"/>
                                 <connections>
+                                    <action selector="hitManageTeams:" destination="q2E-8z-3rr" eventType="touchUpInside" id="1oZ-bq-nz6"/>
                                     <segue destination="PlI-hx-7Xc" kind="show" identifier="dashboardToManageTeams" id="Jd9-aP-Zoy"/>
                                 </connections>
                             </button>
@@ -106,6 +106,7 @@
                                 <rect key="frame" x="415" y="194" width="66" height="30"/>
                                 <state key="normal" title="Add Time"/>
                                 <connections>
+                                    <action selector="hitAddTime:" destination="q2E-8z-3rr" eventType="touchUpInside" id="QMZ-bq-BE6"/>
                                     <segue destination="Zzb-lB-1OL" kind="show" identifier="dashboardToAddTime" id="ttD-t2-a1d"/>
                                 </connections>
                             </button>
@@ -113,6 +114,7 @@
                                 <rect key="frame" x="116" y="378" width="94" height="30"/>
                                 <state key="normal" title="View Records"/>
                                 <connections>
+                                    <action selector="hitViewRecords:" destination="q2E-8z-3rr" eventType="touchUpInside" id="FND-kx-kHy"/>
                                     <segue destination="DPP-Le-OlY" kind="show" identifier="dashboardToViewRecords" id="fB6-Hr-FpQ"/>
                                 </connections>
                             </button>
@@ -120,6 +122,7 @@
                                 <rect key="frame" x="405" y="378" width="87" height="30"/>
                                 <state key="normal" title="Edit Records"/>
                                 <connections>
+                                    <action selector="hitEditRecords:" destination="q2E-8z-3rr" eventType="touchUpInside" id="KNt-4e-IUt"/>
                                     <segue destination="z1C-fV-Mdr" kind="show" identifier="dashboardToEditRecords" id="ysh-cm-5c8"/>
                                 </connections>
                             </button>
@@ -127,6 +130,7 @@
                                 <rect key="frame" x="253" y="285" width="94" height="30"/>
                                 <state key="normal" title="Start Meeting"/>
                                 <connections>
+                                    <action selector="hitStartMeeting:" destination="q2E-8z-3rr" eventType="touchUpInside" id="hnl-Iu-UZZ"/>
                                     <segue destination="SSo-Ff-I1n" kind="show" identifier="dashboardToStartMeeting" id="BCE-jk-6aW"/>
                                 </connections>
                             </button>
@@ -134,9 +138,16 @@
                                 <rect key="frame" x="538" y="35" width="57" height="30"/>
                                 <state key="normal" title="Settings"/>
                                 <connections>
+                                    <action selector="hitSettings:" destination="q2E-8z-3rr" eventType="touchUpInside" id="wUK-iW-Cz5"/>
                                     <segue destination="ZZP-FK-zEF" kind="show" identifier="dashboardToSettings" id="2gZ-MM-TCj"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello, FirstName LastName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yc3-eO-7N6">
+                                <rect key="frame" x="196" y="134" width="208" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -145,6 +156,8 @@
                             <constraint firstItem="Vhm-49-bZP" firstAttribute="leading" secondItem="J29-kP-EA5" secondAttribute="trailing" constant="43" id="7m0-76-QGc"/>
                             <constraint firstItem="6SN-0I-xLj" firstAttribute="leading" secondItem="Vhm-49-bZP" secondAttribute="trailing" constant="68" id="8kO-bh-dCQ"/>
                             <constraint firstItem="w0a-uy-3ar" firstAttribute="trailing" secondItem="hXH-Zq-UPo" secondAttribute="trailingMargin" constant="15" id="CXK-0K-BST"/>
+                            <constraint firstItem="yc3-eO-7N6" firstAttribute="centerX" secondItem="hXH-Zq-UPo" secondAttribute="centerX" id="H5o-dt-36j"/>
+                            <constraint firstItem="Vhm-49-bZP" firstAttribute="top" secondItem="yc3-eO-7N6" secondAttribute="bottom" constant="130" id="HBr-NC-Mpf"/>
                             <constraint firstItem="Vhm-49-bZP" firstAttribute="centerY" secondItem="hXH-Zq-UPo" secondAttribute="centerY" id="LJd-cD-upg"/>
                             <constraint firstItem="Vhm-49-bZP" firstAttribute="top" secondItem="6SN-0I-xLj" secondAttribute="bottom" constant="61" id="UdH-h7-GmI"/>
                             <constraint firstItem="jbA-hY-q1f" firstAttribute="leading" secondItem="Vhm-49-bZP" secondAttribute="trailing" constant="58" id="kEP-N4-tsq"/>
@@ -155,6 +168,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="x4l-Wl-Z2w"/>
+                    <connections>
+                        <outlet property="helloNameLabel" destination="yc3-eO-7N6" id="4NB-dg-cyc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CZa-zi-tAr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -281,24 +297,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mio-5j-Gf3">
-                                <rect key="frame" x="155" y="285" width="290" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9VX-cy-pci">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9VX-cy-pci">
                                 <rect key="frame" x="155" y="332" width="290" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qgm-nW-kzG">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Full Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qgm-nW-kzG">
                                 <rect key="frame" x="155" y="238" width="290" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                                <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tB8-4z-ZVw">
                                 <rect key="frame" x="285" y="394" width="30" height="30"/>
                                 <state key="normal" title="Go"/>
+                                <connections>
+                                    <action selector="hitGo:" destination="oBH-fF-tcN" eventType="touchUpInside" id="4Os-QC-i1H"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Create Account" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="96R-q6-u7J">
                                 <rect key="frame" x="241" y="176" width="119" height="21"/>
@@ -306,6 +320,11 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mio-5j-Gf3">
+                                <rect key="frame" x="155" y="285" width="290" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -322,6 +341,9 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="emailField" destination="mio-5j-Gf3" id="m1k-PF-eq3"/>
+                        <outlet property="nameField" destination="Qgm-nW-kzG" id="w6G-eX-Ljw"/>
+                        <outlet property="passwordField" destination="9VX-cy-pci" id="5RH-vn-fvG"/>
                         <segue destination="iSU-Me-RIe" kind="show" identifier="registerToDashboard" id="AVx-xa-X0h"/>
                     </connections>
                 </viewController>
@@ -331,6 +353,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="HXh-Hs-eM7"/>
+        <segue reference="AVx-xa-X0h"/>
     </inferredMetricsTieBreakers>
 </document>
