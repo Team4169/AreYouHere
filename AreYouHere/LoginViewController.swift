@@ -35,4 +35,8 @@ class LoginViewController: UIViewController {
         }
     }
 
+    @IBAction func cheatLogin(sender: AnyObject) {
+        self.login.loginUser("jackjyro@gmail.com", password: "test4169")
+        performSegueWithIdentifier("loginToDashboard", sender: nil)
+    }
 }

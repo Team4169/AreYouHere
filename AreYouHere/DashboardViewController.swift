@@ -16,7 +16,8 @@ class DashboardViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-//        helloNameLabel.text = 
+//        let userRef = self.rootRef.childByAppendingPath("users/\(rootRef.authData.uid)")
+//        helloNameLabel.text = "Hello, \(userRef.)"
     }
 
     override func didReceiveMemoryWarning() {

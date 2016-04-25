@@ -13,15 +13,15 @@ class Login : NSObject {
     let rootRef = Firebase(url: "http://areyouhere.firebaseio.com")
     
     func createUser(email: String, password: String, name: String) {
-        rootRef.createUser("email", password: "password", withValueCompletionBlock: { error, result in
+        rootRef.createUser(email, password: password, withValueCompletionBlock: { error, result in
             if error != nil {
                 print(error)
             } else {
                 let uid = result["uid"] as? String
                 print("Successfully created user account with uid: \(uid)")
                 
-                let newUserRef = self.rootRef.childByAppendingPath("users/\(email)")
-                let newUserData = ["uid":uid!, "name":name, "email":email]
+                let newUserRef = self.rootRef.childByAppendingPath("users/\(uid)")
+                let newUserData = ["name":name, "email":email]
                 newUserRef.setValue(newUserData)
             }
         })
