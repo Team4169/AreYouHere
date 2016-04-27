@@ -53,20 +53,30 @@
                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XFS-M0-p9V">
-                                <rect key="frame" x="275" y="421" width="46" height="30"/>
+                                <rect key="frame" x="263" y="421" width="71" height="30"/>
                                 <animations/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="DEV Login"/>
                                 <connections>
                                     <action selector="cheatLogin:" destination="DOH-er-g5c" eventType="touchUpInside" id="7bv-rL-84p"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="evB-Cj-T26">
+                                <rect key="frame" x="258" y="465" width="81" height="30"/>
+                                <animations/>
+                                <state key="normal" title="DEV Signup"/>
+                                <connections>
+                                    <action selector="cheatSignup:" destination="DOH-er-g5c" eventType="touchUpInside" id="QFu-ha-4uj"/>
                                 </connections>
                             </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="evB-Cj-T26" firstAttribute="centerX" secondItem="Q6d-g1-hIO" secondAttribute="centerX" id="60s-NQ-rb6"/>
                             <constraint firstItem="Lid-Gx-tFq" firstAttribute="top" secondItem="gxw-UR-UnO" secondAttribute="bottom" constant="23" id="IOY-Gv-SeE"/>
                             <constraint firstItem="XFS-M0-p9V" firstAttribute="centerX" secondItem="Q6d-g1-hIO" secondAttribute="centerX" id="fDv-VI-p2h"/>
                             <constraint firstItem="gxw-UR-UnO" firstAttribute="width" secondItem="Lid-Gx-tFq" secondAttribute="width" id="gDC-mp-ghC"/>
+                            <constraint firstItem="evB-Cj-T26" firstAttribute="top" secondItem="XFS-M0-p9V" secondAttribute="bottom" constant="14" id="t6N-sW-Sb8"/>
                             <constraint firstItem="XFS-M0-p9V" firstAttribute="centerY" secondItem="Q6d-g1-hIO" secondAttribute="centerY" id="wCc-G7-b6c"/>
                         </constraints>
                     </view>
@@ -156,7 +166,7 @@
                                     <segue destination="SSo-Ff-I1n" kind="show" identifier="dashboardToStartMeeting" id="BCE-jk-6aW"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w0a-uy-3ar">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w0a-uy-3ar">
                                 <rect key="frame" x="538" y="35" width="57" height="30"/>
                                 <animations/>
                                 <state key="normal" title="Settings"/>

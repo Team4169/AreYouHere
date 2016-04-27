@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import Foundation
 
 class DashboardViewController: UIViewController {
     @IBOutlet weak var helloNameLabel: UILabel!
@@ -16,8 +17,16 @@ class DashboardViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-//        let userRef = self.rootRef.childByAppendingPath("users/\(rootRef.authData.uid)")
-//        helloNameLabel.text = "Hello, \(userRef.)"
+        print("viewDidLoad")
+        let userRef = self.rootRef.childByAppendingPath("users/\(rootRef.authData.uid)")
+        print(userRef)
+        userRef.observeEventType(.ChildAdded, withBlock: { snapshot in
+            print(snapshot.value)
+//            print("got snap")
+//            let name = snapshot.value.objectForKey("name")
+//            print(name)
+//            self.helloNameLabel.text = "Hello, \(name)!"
+        })
     }
 
     override func didReceiveMemoryWarning() {

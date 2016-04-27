@@ -17,7 +17,7 @@ class Login : NSObject {
             if error != nil {
                 print(error)
             } else {
-                let uid = result["uid"] as? String
+                let uid = result["uid"] as! String
                 print("Successfully created user account with uid: \(uid)")
                 
                 let newUserRef = self.rootRef.childByAppendingPath("users/\(uid)")
