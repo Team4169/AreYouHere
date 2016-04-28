@@ -20,12 +20,14 @@ class DashboardViewController: UIViewController {
         print("viewDidLoad")
         let userRef = self.rootRef.childByAppendingPath("users/\(rootRef.authData.uid)")
         print(userRef)
-        userRef.observeEventType(.ChildAdded, withBlock: { snapshot in
-            print(snapshot.value)
-//            print("got snap")
-//            let name = snapshot.value.objectForKey("name")
-//            print(name)
-//            self.helloNameLabel.text = "Hello, \(name)!"
+        userRef.observeEventType(.Value, withBlock: { snapshot in
+            print("got snap")
+            if let name = snapshot.value.objectForKey("name") {
+                print(name)
+                self.helloNameLabel.text = "Hello, \(name)!"
+            } else {
+                self.helloNameLabel.text = "ERROR"
+            }
         })
     }
 

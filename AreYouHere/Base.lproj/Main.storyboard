@@ -222,13 +222,47 @@
                     <view key="view" contentMode="scaleToFill" id="nKa-Iz-fvF">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="usi-wF-3Dh">
+                                <rect key="frame" x="257" y="245" width="87" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Create Team"/>
+                                <connections>
+                                    <action selector="hitCreate:" destination="PlI-hx-7Xc" eventType="touchUpInside" id="oHs-kk-AZY"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B4h-Zi-czP">
+                                <rect key="frame" x="237" y="346" width="126" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Edit Existing Team"/>
+                                <connections>
+                                    <action selector="hitEdit:" destination="PlI-hx-7Xc" eventType="touchUpInside" id="gzx-nK-fik"/>
+                                </connections>
+                            </button>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dfj-zZ-lwf">
+                                <rect key="frame" x="0.0" y="384" width="600" height="216"/>
+                                <animations/>
+                            </pickerView>
+                        </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="B4h-Zi-czP" firstAttribute="centerX" secondItem="nKa-Iz-fvF" secondAttribute="centerX" id="43W-gt-GtI"/>
+                            <constraint firstItem="Dfj-zZ-lwf" firstAttribute="top" secondItem="B4h-Zi-czP" secondAttribute="bottom" constant="10" id="FmY-eS-OW3"/>
+                            <constraint firstItem="Dfj-zZ-lwf" firstAttribute="width" secondItem="nKa-Iz-fvF" secondAttribute="width" id="Ip0-ZW-fB7"/>
+                            <constraint firstItem="usi-wF-3Dh" firstAttribute="centerY" secondItem="nKa-Iz-fvF" secondAttribute="centerY" id="KiQ-e0-lMO"/>
+                            <constraint firstItem="9u3-3m-Hy6" firstAttribute="top" secondItem="Dfj-zZ-lwf" secondAttribute="bottom" id="QnD-2m-usV"/>
+                            <constraint firstItem="usi-wF-3Dh" firstAttribute="centerX" secondItem="nKa-Iz-fvF" secondAttribute="centerX" id="eij-dA-qlg"/>
+                            <constraint firstItem="Dfj-zZ-lwf" firstAttribute="centerX" secondItem="nKa-Iz-fvF" secondAttribute="centerX" id="xG6-6y-Dal"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="picker" destination="Dfj-zZ-lwf" id="iMG-Dd-ZVq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nmw-gG-f0Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3818" y="-904"/>
+            <point key="canvasLocation" x="3854" y="-1632"/>
         </scene>
         <!--Add Time View Controller-->
         <scene sceneID="9uo-I5-jPv">

@@ -7,13 +7,23 @@
 //
 
 import UIKit
+import Firebase
 
 class ManageTeamsViewController: UIViewController {
+    @IBOutlet weak var picker: UIPickerView!
+    
+    var pickerData: [String] = [String]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        let userRef = Variables.userRef!
+        userRef.observeEventType(.Value, withBlock: { snapshot in
+            if let writeableTeams = snapshot.value.objectForKey("writeableTeams") {
+                self.pickerData = writeableTeams as! [String]
+                //NOTE: You changed the file structure so now teams are lists under UID/PROGRAM/teamNumber
+            }
+        })
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,15 +31,11 @@ class ManageTeamsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func hitCreate(sender: AnyObject) {
+        
     }
-    */
-
+    
+    @IBAction func hitEdit(sender: AnyObject) {
+        
+    }
 }

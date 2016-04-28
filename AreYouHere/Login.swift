@@ -10,7 +10,7 @@ import Foundation
 import Firebase
 
 class Login : NSObject {
-    let rootRef = Firebase(url: "http://areyouhere.firebaseio.com")
+    let rootRef = Variables.rootRef
     
     func createUser(email: String, password: String, name: String) {
         rootRef.createUser(email, password: password, withValueCompletionBlock: { error, result in
@@ -33,6 +33,7 @@ class Login : NSObject {
                 print(error)
             } else {
                 let uid = authData.uid
+                Variables.userRef = self.rootRef.childByAppendingPath("users/\(uid)")
                 print("Successfully logged in user with uid: \(uid)")
             }
         })
