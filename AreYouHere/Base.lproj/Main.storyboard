@@ -231,8 +231,8 @@
                                     <action selector="hitCreate:" destination="PlI-hx-7Xc" eventType="touchUpInside" id="oHs-kk-AZY"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B4h-Zi-czP">
-                                <rect key="frame" x="237" y="346" width="126" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B4h-Zi-czP">
+                                <rect key="frame" x="237" y="319" width="126" height="30"/>
                                 <animations/>
                                 <state key="normal" title="Edit Existing Team"/>
                                 <connections>
@@ -243,21 +243,36 @@
                                 <rect key="frame" x="0.0" y="384" width="600" height="216"/>
                                 <animations/>
                             </pickerView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="CFm-60-eOi">
+                                <rect key="frame" x="173" y="357" width="254" height="29"/>
+                                <animations/>
+                                <segments>
+                                    <segment title="FRC"/>
+                                    <segment title="FTC"/>
+                                    <segment title="FLL"/>
+                                    <segment title="FLL Jr."/>
+                                </segments>
+                                <connections>
+                                    <action selector="segmentedIndexChanged:" destination="PlI-hx-7Xc" eventType="valueChanged" id="1T1-4M-hdz"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="B4h-Zi-czP" firstAttribute="centerX" secondItem="nKa-Iz-fvF" secondAttribute="centerX" id="43W-gt-GtI"/>
-                            <constraint firstItem="Dfj-zZ-lwf" firstAttribute="top" secondItem="B4h-Zi-czP" secondAttribute="bottom" constant="10" id="FmY-eS-OW3"/>
                             <constraint firstItem="Dfj-zZ-lwf" firstAttribute="width" secondItem="nKa-Iz-fvF" secondAttribute="width" id="Ip0-ZW-fB7"/>
                             <constraint firstItem="usi-wF-3Dh" firstAttribute="centerY" secondItem="nKa-Iz-fvF" secondAttribute="centerY" id="KiQ-e0-lMO"/>
+                            <constraint firstItem="Dfj-zZ-lwf" firstAttribute="top" secondItem="B4h-Zi-czP" secondAttribute="bottom" constant="35" id="LbQ-Fg-tsX"/>
                             <constraint firstItem="9u3-3m-Hy6" firstAttribute="top" secondItem="Dfj-zZ-lwf" secondAttribute="bottom" id="QnD-2m-usV"/>
                             <constraint firstItem="usi-wF-3Dh" firstAttribute="centerX" secondItem="nKa-Iz-fvF" secondAttribute="centerX" id="eij-dA-qlg"/>
                             <constraint firstItem="Dfj-zZ-lwf" firstAttribute="centerX" secondItem="nKa-Iz-fvF" secondAttribute="centerX" id="xG6-6y-Dal"/>
+                            <constraint firstItem="Dfj-zZ-lwf" firstAttribute="top" secondItem="CFm-60-eOi" secondAttribute="bottom" constant="-1" id="yaA-wS-IKb"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="picker" destination="Dfj-zZ-lwf" id="iMG-Dd-ZVq"/>
+                        <outlet property="segmentedControl" destination="CFm-60-eOi" id="uCw-Ub-hcb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nmw-gG-f0Q" userLabel="First Responder" sceneMemberID="firstResponder"/>

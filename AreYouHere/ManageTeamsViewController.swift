@@ -11,6 +11,7 @@ import Firebase
 
 class ManageTeamsViewController: UIViewController {
     @IBOutlet weak var picker: UIPickerView!
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
     
     var pickerData: [String] = [String]()
 
@@ -38,4 +39,20 @@ class ManageTeamsViewController: UIViewController {
     @IBAction func hitEdit(sender: AnyObject) {
         
     }
+
+    @IBAction func segmentedIndexChanged(sender: AnyObject) {
+        switch segmentedControl.selectedSegmentIndex {
+            case 0:
+                print("0");
+            case 1:
+                print("1");
+            case 2:
+                print("2");
+            case 3:
+                print("3")
+            default:
+                break;
+        }
+    }
+    
 }
