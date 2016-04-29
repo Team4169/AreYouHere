@@ -9,19 +9,22 @@
 import UIKit
 import Firebase
 
-class ManageTeamsViewController: UIViewController {
+class ManageTeamsViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     @IBOutlet weak var picker: UIPickerView!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
-    var pickerData: NSArray?
+    var pickerData = NSArray()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.picker.dataSource = self
+        self.picker.delegate = self
+        
         let userRef = Variables.userRef!
         userRef.childByAppendingPath("writeableTeams").observeEventType(.Value, withBlock: { snapshot in
             if let writeableTeams = snapshot.value.objectForKey("frc") {
-                self.pickerData = writeableTeams as! NSArray
+                print(writeableTeams[1])
                 //NOTE: You changed the file structure so now teams are lists under UID/PROGRAM/teamNumber
             }
         })
@@ -30,6 +33,18 @@ class ManageTeamsViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return pickerData.count
+    }
+    
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return (pickerData[row] as! String)
     }
     
     @IBAction func hitCreate(sender: AnyObject) {

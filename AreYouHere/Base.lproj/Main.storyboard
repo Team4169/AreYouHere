@@ -243,7 +243,7 @@
                                 <rect key="frame" x="0.0" y="384" width="600" height="216"/>
                                 <animations/>
                             </pickerView>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="CFm-60-eOi">
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="CFm-60-eOi">
                                 <rect key="frame" x="173" y="357" width="254" height="29"/>
                                 <animations/>
                                 <segments>
@@ -266,6 +266,7 @@
                             <constraint firstItem="Dfj-zZ-lwf" firstAttribute="top" secondItem="B4h-Zi-czP" secondAttribute="bottom" constant="35" id="LbQ-Fg-tsX"/>
                             <constraint firstItem="9u3-3m-Hy6" firstAttribute="top" secondItem="Dfj-zZ-lwf" secondAttribute="bottom" id="QnD-2m-usV"/>
                             <constraint firstItem="usi-wF-3Dh" firstAttribute="centerX" secondItem="nKa-Iz-fvF" secondAttribute="centerX" id="eij-dA-qlg"/>
+                            <constraint firstItem="CFm-60-eOi" firstAttribute="centerX" secondItem="nKa-Iz-fvF" secondAttribute="centerX" id="fW0-4t-Mpe"/>
                             <constraint firstItem="Dfj-zZ-lwf" firstAttribute="centerX" secondItem="nKa-Iz-fvF" secondAttribute="centerX" id="xG6-6y-Dal"/>
                             <constraint firstItem="Dfj-zZ-lwf" firstAttribute="top" secondItem="CFm-60-eOi" secondAttribute="bottom" constant="-1" id="yaA-wS-IKb"/>
                         </constraints>
