@@ -9,7 +9,7 @@
 import Foundation
 import Firebase
 
-struct Variables {
-    static let rootRef = Firebase(url: "http://areyouhere.firebaseio.com")
-    static var userRef: Firebase?
-}
+let rootRef = Firebase(url: "http://areyouhere.firebaseio.com")
+var userRef: Firebase?
+
+let uniqueNotificationKey = "com.github.thatnerdjack"

@@ -22,14 +22,7 @@ class ManageTeamsViewController: UIViewController, UIPickerViewDelegate, UIPicke
         self.picker.dataSource = self
         self.picker.delegate = self
         
-        let userRef = Variables.userRef!
-        userRef.childByAppendingPath("writeableTeams").observeEventType(.Value, withBlock: { snapshot in
-            if let writeableTeams = snapshot.value.objectForKey("frc") {
-                let teamsData: NSArray = writeableTeams as! NSArray
-                let swiftArray = teamsData.flatMap({ $0 as? String })
-                self.pickerData = swiftArray
-            }
-        }) //move this method to dashboard under prepare for segue
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "loadPicker", name: "\(uniqueNotificationKey).ManageTeamsVC.getWriteableTeams", object: nil)
     }
 
     override func didReceiveMemoryWarning() {
@@ -56,17 +49,42 @@ class ManageTeamsViewController: UIViewController, UIPickerViewDelegate, UIPicke
     @IBAction func hitEdit(sender: AnyObject) {
         
     }
+    
+    func getWriteableTeams(program: String) {
+        var swiftArray: [String] = [String]()
+        userRef!.childByAppendingPath("writeableTeams").observeEventType(.Value, withBlock: { snapshot in
+            if let writeableTeams = snapshot.value.objectForKey(program) {
+                let teamsData: NSArray = writeableTeams as! NSArray
+                print(teamsData)
+                for items in teamsData {
+                    swiftArray.append(String(items))
+                }
+                print(swiftArray)
+                swiftArray.sortInPlace()
+                swiftArray.insert("Select a team", atIndex: 0)
+                print(swiftArray)
+            } else {
+                swiftArray.append("No availible teams")
+            }
+            self.pickerData = swiftArray
+            NSNotificationCenter.defaultCenter().postNotificationName("\(uniqueNotificationKey).ManageTeamsVC.getWriteableTeams", object: nil)
+        })
+    }
+    
+    func loadPicker() {
+        self.picker.reloadAllComponents()
+    }
 
     @IBAction func segmentedIndexChanged(sender: AnyObject) {
         switch segmentedControl.selectedSegmentIndex {
             case 0:
-                print("0");
+                getWriteableTeams("frc");
             case 1:
-                print("1");
+                getWriteableTeams("ftc");
             case 2:
-                print("2");
+                getWriteableTeams("fll");
             case 3:
-                print("3")
+                getWriteableTeams("fllj");
             default:
                 break;
         }

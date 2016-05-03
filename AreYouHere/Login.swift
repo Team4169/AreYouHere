@@ -10,7 +10,6 @@ import Foundation
 import Firebase
 
 class Login : NSObject {
-    let rootRef = Variables.rootRef
     
     func createUser(email: String, password: String, name: String) {
         rootRef.createUser(email, password: password, withValueCompletionBlock: { error, result in
@@ -20,7 +19,7 @@ class Login : NSObject {
                 let uid = result["uid"] as! String
                 print("Successfully created user account with uid: \(uid)")
                 
-                let newUserRef = self.rootRef.childByAppendingPath("users/\(uid)")
+                let newUserRef = rootRef.childByAppendingPath("users/\(uid)")
                 let newUserData = ["name":name, "email":email]
                 newUserRef.setValue(newUserData)
             }
@@ -33,7 +32,7 @@ class Login : NSObject {
                 print(error)
             } else {
                 let uid = authData.uid
-                Variables.userRef = self.rootRef.childByAppendingPath("users/\(uid)")
+                userRef = rootRef.childByAppendingPath("users/\(uid)")
                 print("Successfully logged in user with uid: \(uid)")
             }
         })

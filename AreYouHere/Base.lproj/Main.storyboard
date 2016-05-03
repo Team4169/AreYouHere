@@ -21,7 +21,7 @@
                                 <rect key="frame" x="279" y="186" width="42" height="21"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Lid-Gx-tFq">
@@ -126,7 +126,6 @@
                                 <animations/>
                                 <state key="normal" title="Manage Teams"/>
                                 <connections>
-                                    <action selector="hitManageTeams:" destination="q2E-8z-3rr" eventType="touchUpInside" id="1oZ-bq-nz6"/>
                                     <segue destination="PlI-hx-7Xc" kind="show" identifier="dashboardToManageTeams" id="Jd9-aP-Zoy"/>
                                 </connections>
                             </button>
@@ -135,7 +134,6 @@
                                 <animations/>
                                 <state key="normal" title="Add Time"/>
                                 <connections>
-                                    <action selector="hitAddTime:" destination="q2E-8z-3rr" eventType="touchUpInside" id="QMZ-bq-BE6"/>
                                     <segue destination="Zzb-lB-1OL" kind="show" identifier="dashboardToAddTime" id="ttD-t2-a1d"/>
                                 </connections>
                             </button>
@@ -144,7 +142,6 @@
                                 <animations/>
                                 <state key="normal" title="View Records"/>
                                 <connections>
-                                    <action selector="hitViewRecords:" destination="q2E-8z-3rr" eventType="touchUpInside" id="FND-kx-kHy"/>
                                     <segue destination="DPP-Le-OlY" kind="show" identifier="dashboardToViewRecords" id="fB6-Hr-FpQ"/>
                                 </connections>
                             </button>
@@ -153,7 +150,6 @@
                                 <animations/>
                                 <state key="normal" title="Edit Records"/>
                                 <connections>
-                                    <action selector="hitEditRecords:" destination="q2E-8z-3rr" eventType="touchUpInside" id="KNt-4e-IUt"/>
                                     <segue destination="z1C-fV-Mdr" kind="show" identifier="dashboardToEditRecords" id="ysh-cm-5c8"/>
                                 </connections>
                             </button>
@@ -162,26 +158,24 @@
                                 <animations/>
                                 <state key="normal" title="Start Meeting"/>
                                 <connections>
-                                    <action selector="hitStartMeeting:" destination="q2E-8z-3rr" eventType="touchUpInside" id="hnl-Iu-UZZ"/>
                                     <segue destination="SSo-Ff-I1n" kind="show" identifier="dashboardToStartMeeting" id="BCE-jk-6aW"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w0a-uy-3ar">
-                                <rect key="frame" x="538" y="35" width="57" height="30"/>
-                                <animations/>
-                                <state key="normal" title="Settings"/>
-                                <connections>
-                                    <action selector="hitSettings:" destination="q2E-8z-3rr" eventType="touchUpInside" id="wUK-iW-Cz5"/>
-                                    <segue destination="ZZP-FK-zEF" kind="show" identifier="dashboardToSettings" id="2gZ-MM-TCj"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello, FirstName LastName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yc3-eO-7N6">
                                 <rect key="frame" x="196" y="134" width="208" height="21"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w0a-uy-3ar">
+                                <rect key="frame" x="543" y="72" width="57" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Settings"/>
+                                <connections>
+                                    <segue destination="ZZP-FK-zEF" kind="show" identifier="dashboardToSettings" id="2gZ-MM-TCj"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -412,7 +406,7 @@
                                 <rect key="frame" x="241" y="176" width="119" height="21"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mio-5j-Gf3">

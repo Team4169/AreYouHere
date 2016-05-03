@@ -29,7 +29,7 @@ class RegisterViewController: UIViewController {
     @IBAction func hitGo(sender: AnyObject) {
         login.createUser(emailField.text!, password: passwordField.text!, name: nameField.text!)
         login.loginUser(emailField.text!, password: passwordField.text!)
-        if login.rootRef.authData != nil {
+        if rootRef.authData != nil {
             performSegueWithIdentifier("registerToDashboard", sender: nil)
         } else {
             let alert = UIAlertController(title: "Register Error", message: "Your account creation failed.", preferredStyle: UIAlertControllerStyle.Alert)

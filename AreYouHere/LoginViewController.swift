@@ -26,7 +26,7 @@ class LoginViewController: UIViewController {
     
     @IBAction func hitLogin(sender: AnyObject) {
         self.login.loginUser(emailField.text!, password: passwordField.text!)
-        if login.rootRef.authData != nil {
+        if rootRef.authData != nil {
             performSegueWithIdentifier("loginToDashboard", sender: nil)
         } else {
             let alert = UIAlertController(title: "Login Error", message: "Your login failed.", preferredStyle: UIAlertControllerStyle.Alert)

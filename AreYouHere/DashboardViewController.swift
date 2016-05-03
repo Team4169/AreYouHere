@@ -35,22 +35,4 @@ class DashboardViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    @IBAction func hitSettings(sender: AnyObject) {
-    }
-    
-    @IBAction func hitManageTeams(sender: AnyObject) {
-    }
-
-    @IBAction func hitAddTime(sender: AnyObject) {
-    }
-    
-    @IBAction func hitStartMeeting(sender: AnyObject) {
-    }
-    
-    @IBAction func hitViewRecords(sender: AnyObject) {
-    }
-    
-    @IBAction func hitEditRecords(sender: AnyObject) {
-    }
 }
