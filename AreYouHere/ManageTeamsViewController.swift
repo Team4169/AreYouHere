@@ -13,6 +13,9 @@ import Foundation
 class ManageTeamsViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     @IBOutlet weak var picker: UIPickerView!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
+    @IBOutlet weak var editTeamsButton: UIButton!
+    
+    var pickerSelection: String = ""
     
     var pickerData: [String] = [String]()
 
@@ -40,6 +43,16 @@ class ManageTeamsViewController: UIViewController, UIPickerViewDelegate, UIPicke
     
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return (pickerData[row])
+    }
+    
+    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        if (pickerData[row] == "Select a team" || pickerData[row] == "No availible teams") && pickerData.count > 0 {
+            self.pickerSelection = ""
+            editTeamsButton.enabled = false
+        } else {
+            self.pickerSelection = pickerData[row]
+            editTeamsButton.enabled = true
+        }
     }
     
     @IBAction func hitCreate(sender: AnyObject) {

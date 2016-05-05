@@ -26,22 +26,28 @@ class LoginViewController: UIViewController {
     
     @IBAction func hitLogin(sender: AnyObject) {
         self.login.loginUser(emailField.text!, password: passwordField.text!)
-        if rootRef.authData != nil {
-            performSegueWithIdentifier("loginToDashboard", sender: nil)
-        } else {
-            let alert = UIAlertController(title: "Login Error", message: "Your login failed.", preferredStyle: UIAlertControllerStyle.Alert)
-            alert.addAction(UIAlertAction(title: "Try Again", style: UIAlertActionStyle.Default, handler: nil))
-            self.presentViewController(alert, animated: true, completion: nil)
-        }
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "gotLoginError", name: "\(uniqueNotificationKey).Login.loginUser.error", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "gotLoginSuccess", name: "\(uniqueNotificationKey).Login.loginUser.success", object: nil)
+//        if rootRef.authData != nil {
+//            performSegueWithIdentifier("loginToLoad", sender: nil)
+//        } else {
+//            let alert = UIAlertController(title: "Login Error", message: "Your login failed.", preferredStyle: UIAlertControllerStyle.Alert)
+//            alert.addAction(UIAlertAction(title: "Try Again", style: UIAlertActionStyle.Default, handler: nil))
+//            self.presentViewController(alert, animated: true, completion: nil)
+//        }
+    }
+    
+    func gotLoginError() {
+        //add ns notification center stuff. remove observe if needed. so far youve added post to Login.swift and observ to here
     }
 
     @IBAction func cheatLogin(sender: AnyObject) {
         self.login.loginUser("jackjyro@gmail.com", password: "test4169")
-        performSegueWithIdentifier("loginToDashboard", sender: nil)
+        performSegueWithIdentifier("loginToLoad", sender: nil)
     }
     
     @IBAction func cheatSignup(sender: AnyObject) {
         self.login.createUser("jackjyro@gmail.com", password: "test4169", name: "Jack Doherty")
-        performSegueWithIdentifier("loginToDashboard", sender: nil)
+        performSegueWithIdentifier("loginToLoad", sender: nil)
     }
 }

@@ -83,12 +83,34 @@
                     <connections>
                         <outlet property="emailField" destination="gxw-UR-UnO" id="eB6-Hk-ZtO"/>
                         <outlet property="passwordField" destination="Lid-Gx-tFq" id="y4u-wz-ERf"/>
-                        <segue destination="iSU-Me-RIe" kind="show" identifier="loginToDashboard" id="HXh-Hs-eM7"/>
+                        <segue destination="gfR-5g-SSC" kind="show" identifier="loginToLoad" id="ych-j9-DRb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H2R-4W-HHJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="395" y="550"/>
+            <point key="canvasLocation" x="88" y="550"/>
+        </scene>
+        <!--Login Load View Controller-->
+        <scene sceneID="3fK-fC-jel">
+            <objects>
+                <viewController id="gfR-5g-SSC" customClass="LoginLoadViewController" customModule="AreYouHere" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Gwr-ug-hyW"/>
+                        <viewControllerLayoutGuide type="bottom" id="riV-yY-y6u"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="46t-ZZ-4lI">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <segue destination="iSU-Me-RIe" kind="show" identifier="loadToDashboard" id="rwT-a4-UdX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IDT-YS-LgU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="790" y="550"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="u7n-P2-cW2">
@@ -225,7 +247,7 @@
                                     <action selector="hitCreate:" destination="PlI-hx-7Xc" eventType="touchUpInside" id="oHs-kk-AZY"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B4h-Zi-czP">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B4h-Zi-czP">
                                 <rect key="frame" x="237" y="319" width="126" height="30"/>
                                 <animations/>
                                 <state key="normal" title="Edit Existing Team"/>
@@ -233,9 +255,12 @@
                                     <action selector="hitEdit:" destination="PlI-hx-7Xc" eventType="touchUpInside" id="gzx-nK-fik"/>
                                 </connections>
                             </button>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dfj-zZ-lwf">
+                            <pickerView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Dfj-zZ-lwf">
                                 <rect key="frame" x="0.0" y="384" width="600" height="216"/>
                                 <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="xaJ-Va-WF3"/>
+                                </constraints>
                             </pickerView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="CFm-60-eOi">
                                 <rect key="frame" x="173" y="357" width="254" height="29"/>
@@ -266,6 +291,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="editTeamsButton" destination="B4h-Zi-czP" id="DEb-OB-plq"/>
                         <outlet property="picker" destination="Dfj-zZ-lwf" id="iMG-Dd-ZVq"/>
                         <outlet property="segmentedControl" destination="CFm-60-eOi" id="uCw-Ub-hcb"/>
                     </connections>
@@ -444,6 +470,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="AVx-xa-X0h"/>
+        <segue reference="rwT-a4-UdX"/>
     </inferredMetricsTieBreakers>
 </document>
