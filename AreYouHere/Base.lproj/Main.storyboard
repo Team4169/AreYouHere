@@ -440,6 +440,7 @@
                         <outlet property="nameField" destination="Qgm-nW-kzG" id="w6G-eX-Ljw"/>
                         <outlet property="passwordField" destination="9VX-cy-pci" id="5RH-vn-fvG"/>
                         <segue destination="iSU-Me-RIe" kind="show" identifier="registerToDashboard" id="AVx-xa-X0h"/>
+                        <segue destination="DOH-er-g5c" kind="show" identifier="registerToLogin" id="aAs-sz-fpp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Gd-Rp-mNB" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -448,6 +449,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="DXY-iU-g89"/>
+        <segue reference="AVx-xa-X0h"/>
     </inferredMetricsTieBreakers>
 </document>
