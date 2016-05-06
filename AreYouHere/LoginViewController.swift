@@ -14,9 +14,17 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordField: UITextField!
     
     let login = Login()
+    var overlay: UIView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        overlay = UIView(frame: view.frame)
+        overlay!.backgroundColor = UIColor.whiteColor()
+        overlay!.alpha = 0.8
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "gotLoginError", name: "\(uniqueNotificationKey).Login.loginUser.error", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "gotLoginSuccess", name: "\(uniqueNotificationKey).Login.loginUser.success", object: nil)
     }
 
     override func didReceiveMemoryWarning() {
@@ -25,29 +33,28 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func hitLogin(sender: AnyObject) {
+        view.addSubview(overlay!)
         self.login.loginUser(emailField.text!, password: passwordField.text!)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "gotLoginError", name: "\(uniqueNotificationKey).Login.loginUser.error", object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "gotLoginSuccess", name: "\(uniqueNotificationKey).Login.loginUser.success", object: nil)
-//        if rootRef.authData != nil {
-//            performSegueWithIdentifier("loginToLoad", sender: nil)
-//        } else {
-//            let alert = UIAlertController(title: "Login Error", message: "Your login failed.", preferredStyle: UIAlertControllerStyle.Alert)
-//            alert.addAction(UIAlertAction(title: "Try Again", style: UIAlertActionStyle.Default, handler: nil))
-//            self.presentViewController(alert, animated: true, completion: nil)
-//        }
     }
     
     func gotLoginError() {
-        //add ns notification center stuff. remove observe if needed. so far youve added post to Login.swift and observ to here
+        overlay?.removeFromSuperview()
+        let alert = UIAlertController(title: "Login Error", message: "Your login failed.", preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "Try Again", style: UIAlertActionStyle.Default, handler: nil))
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    func gotLoginSuccess() {
+        performSegueWithIdentifier("loginToDashboard", sender: nil)
     }
 
     @IBAction func cheatLogin(sender: AnyObject) {
         self.login.loginUser("jackjyro@gmail.com", password: "test4169")
-        performSegueWithIdentifier("loginToLoad", sender: nil)
+        performSegueWithIdentifier("loginToDashboard", sender: nil)
     }
     
     @IBAction func cheatSignup(sender: AnyObject) {
         self.login.createUser("jackjyro@gmail.com", password: "test4169", name: "Jack Doherty")
-        performSegueWithIdentifier("loginToLoad", sender: nil)
+        performSegueWithIdentifier("loginToDashboard", sender: nil)
     }
 }

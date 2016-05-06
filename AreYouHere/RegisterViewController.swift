@@ -17,14 +17,20 @@ class RegisterViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "gotCreateError", name: "\(uniqueNotificationKey).Login.createUser.error", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "gotCreateSuccess", name: "\(uniqueNotificationKey).Login.createUser.success", object: nil)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "gotLoginError", name: "\(uniqueNotificationKey).Login.loginUser.error", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "gotLoginSuccess", name: "\(uniqueNotificationKey).Login.loginUser.success", object: nil)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    //add those 2 (maybe 4?) methods in super
     
     @IBAction func hitGo(sender: AnyObject) {
         login.createUser(emailField.text!, password: passwordField.text!, name: nameField.text!)
@@ -36,6 +42,7 @@ class RegisterViewController: UIViewController {
             alert.addAction(UIAlertAction(title: "Try Again", style: UIAlertActionStyle.Default, handler: nil))
             self.presentViewController(alert, animated: true, completion: nil)
         }
+        //add observs here
     }
     
 }
