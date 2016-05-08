@@ -16,8 +16,8 @@
 		04C18DF11CC53AD900DE272C /* EditRecordsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C18DF01CC53AD900DE272C /* EditRecordsViewController.swift */; };
 		04C18DF31CC5824600DE272C /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C18DF21CC5824600DE272C /* RegisterViewController.swift */; };
 		9C373F5F720CC46357603BF7 /* Pods_AreYouHere.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E89E57E3B17D0033A296F7F0 /* Pods_AreYouHere.framework */; };
-		C1040F191CDBC2D6004A7C96 /* LoginLoadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1040F181CDBC2D6004A7C96 /* LoginLoadViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		C11D4B211CD27D56003593F7 /* Variables.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11D4B201CD27D56003593F7 /* Variables.swift */; settings = {ASSET_TAGS = (); }; };
+		C1040F191CDBC2D6004A7C96 /* LoginLoadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1040F181CDBC2D6004A7C96 /* LoginLoadViewController.swift */; };
+		C11D4B211CD27D56003593F7 /* Variables.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11D4B201CD27D56003593F7 /* Variables.swift */; };
 		C1277F491CB6C73D00F4B046 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1277F481CB6C73D00F4B046 /* AppDelegate.swift */; };
 		C1277F4E1CB6C73D00F4B046 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1277F4C1CB6C73D00F4B046 /* Main.storyboard */; };
 		C1277F501CB6C73D00F4B046 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C1277F4F1CB6C73D00F4B046 /* Assets.xcassets */; };
@@ -521,10 +521,13 @@
 			baseConfigurationReference = 72478EFF93EE691EDFAED989 /* Pods-AreYouHere.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = AreYouHere/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.thatnerdjack.AreYouHere;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -534,10 +537,13 @@
 			baseConfigurationReference = B1EEA4278B12C4F554A593FA /* Pods-AreYouHere.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = AreYouHere/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.thatnerdjack.AreYouHere;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
