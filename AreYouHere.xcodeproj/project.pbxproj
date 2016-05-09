@@ -24,6 +24,7 @@
 		C1277F531CB6C73D00F4B046 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1277F511CB6C73D00F4B046 /* LaunchScreen.storyboard */; };
 		C1277F5E1CB6C73D00F4B046 /* AreYouHereTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1277F5D1CB6C73D00F4B046 /* AreYouHereTests.swift */; };
 		C1277F691CB6C73D00F4B046 /* AreYouHereUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1277F681CB6C73D00F4B046 /* AreYouHereUITests.swift */; };
+		C171B8A91CE0FAC000F68AB0 /* CreateTeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C171B8A81CE0FAC000F68AB0 /* CreateTeamViewController.swift */; };
 		C1D008891CBD604D00EE89E4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D008881CBD604D00EE89E4 /* LoginViewController.swift */; };
 		C1D0088B1CBD64CD00EE89E4 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D0088A1CBD64CD00EE89E4 /* DashboardViewController.swift */; };
 /* End PBXBuildFile section */
@@ -70,6 +71,7 @@
 		C1277F641CB6C73D00F4B046 /* AreYouHereUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AreYouHereUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1277F681CB6C73D00F4B046 /* AreYouHereUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreYouHereUITests.swift; sourceTree = "<group>"; };
 		C1277F6A1CB6C73D00F4B046 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C171B8A81CE0FAC000F68AB0 /* CreateTeamViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateTeamViewController.swift; sourceTree = "<group>"; };
 		C1D008881CBD604D00EE89E4 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		C1D0088A1CBD64CD00EE89E4 /* DashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		E89E57E3B17D0033A296F7F0 /* Pods_AreYouHere.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AreYouHere.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -128,6 +130,7 @@
 			children = (
 				C1277F481CB6C73D00F4B046 /* AppDelegate.swift */,
 				C1277F4C1CB6C73D00F4B046 /* Main.storyboard */,
+				C171B8A81CE0FAC000F68AB0 /* CreateTeamViewController.swift */,
 				C1040F181CDBC2D6004A7C96 /* LoginLoadViewController.swift */,
 				04C18DF21CC5824600DE272C /* RegisterViewController.swift */,
 				04C18DEE1CC53AC800DE272C /* ViewRecordsViewController.swift */,
@@ -373,6 +376,7 @@
 				C1D0088B1CBD64CD00EE89E4 /* DashboardViewController.swift in Sources */,
 				04C18DED1CC53AB900DE272C /* StartMeetingViewController.swift in Sources */,
 				C1040F191CDBC2D6004A7C96 /* LoginLoadViewController.swift in Sources */,
+				C171B8A91CE0FAC000F68AB0 /* CreateTeamViewController.swift in Sources */,
 				04C18DF11CC53AD900DE272C /* EditRecordsViewController.swift in Sources */,
 				C1277F491CB6C73D00F4B046 /* AppDelegate.swift in Sources */,
 				04C18DE91CC53A8800DE272C /* ManageTeamsViewController.swift in Sources */,
