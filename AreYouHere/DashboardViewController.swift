@@ -12,15 +12,12 @@ import Foundation
 
 class DashboardViewController: UIViewController {
     @IBOutlet weak var helloNameLabel: UILabel!
-    
-    let rootRef = Firebase(url: "http://areyouhere.firebaseio.com")
 
     override func viewDidLoad() {
         super.viewDidLoad()
         print("viewDidLoad")
-        let userRef = self.rootRef.childByAppendingPath("users/\(rootRef.authData.uid)")
         print(userRef)
-        userRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
+        userRef!.observeSingleEventOfType(.Value, withBlock: { snapshot in
             print("got snap")
             if let name = snapshot.value.objectForKey("name") {
                 print(name)

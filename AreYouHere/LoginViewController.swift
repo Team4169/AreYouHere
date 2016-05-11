@@ -23,8 +23,8 @@ class LoginViewController: UIViewController {
         overlay!.backgroundColor = UIColor.whiteColor()
         overlay!.alpha = 0.8
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "gotLoginError", name: "\(uniqueNotificationKey).Login.loginUser.error", object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "gotLoginSuccess", name: "\(uniqueNotificationKey).Login.loginUser.success", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(LoginViewController.gotLoginError), name: "\(uniqueNotificationKey).Login.loginUser.error", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(LoginViewController.gotLoginSuccess), name: "\(uniqueNotificationKey).Login.loginUser.success", object: nil)
     }
 
     override func didReceiveMemoryWarning() {
@@ -50,11 +50,9 @@ class LoginViewController: UIViewController {
 
     @IBAction func cheatLogin(sender: AnyObject) {
         self.login.loginUser("jackjyro@gmail.com", password: "test4169")
-        performSegueWithIdentifier("loginToDashboard", sender: nil)
     }
     
     @IBAction func cheatSignup(sender: AnyObject) {
         self.login.createUser("jackjyro@gmail.com", password: "test4169", name: "Jack Doherty")
-        performSegueWithIdentifier("loginToDashboard", sender: nil)
     }
 }

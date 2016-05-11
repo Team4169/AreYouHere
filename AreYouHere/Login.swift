@@ -17,10 +17,10 @@ class Login : NSObject {
                 print(error)
                 NSNotificationCenter.defaultCenter().postNotificationName("\(uniqueNotificationKey).Login.createUser.error", object: nil)
             } else {
-                let uid = result["uid"] as! String
-                print("Successfully created user account with uid: \(uid)")
+                let eid = email.base64Encoded()
+                print("Successfully created user account with eid: \(eid)")
                 
-                let newUserRef = rootRef.childByAppendingPath("users/\(uid)")
+                let newUserRef = rootRef.childByAppendingPath("users/\(eid)")
                 let newUserData = ["name":name, "email":email]
                 newUserRef.setValue(newUserData)
                 NSNotificationCenter.defaultCenter().postNotificationName("\(uniqueNotificationKey).Login.createUser.success", object: nil)
@@ -34,9 +34,9 @@ class Login : NSObject {
                 print(error)
                 NSNotificationCenter.defaultCenter().postNotificationName("\(uniqueNotificationKey).Login.loginUser.error", object: nil)
             } else {
-                let uid = authData.uid
-                userRef = rootRef.childByAppendingPath("users/\(uid)")
-                print("Successfully logged in user with uid: \(uid)")
+                let eid = email.base64Encoded()
+                userRef = rootRef.childByAppendingPath("users/\(eid)")
+                print("Successfully logged in user with eid: \(eid)")
                 NSNotificationCenter.defaultCenter().postNotificationName("\(uniqueNotificationKey).Login.loginUser.success", object: nil)
             }
         })

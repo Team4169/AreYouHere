@@ -25,7 +25,7 @@ class ManageTeamsViewController: UIViewController, UIPickerViewDelegate, UIPicke
         self.picker.dataSource = self
         self.picker.delegate = self
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "loadPicker", name: "\(uniqueNotificationKey).ManageTeamsVC.getWriteableTeams", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ManageTeamsViewController.loadPicker), name: "\(uniqueNotificationKey).ManageTeamsVC.getWriteableTeams", object: nil)
     }
 
     override func didReceiveMemoryWarning() {
@@ -66,16 +66,18 @@ class ManageTeamsViewController: UIViewController, UIPickerViewDelegate, UIPicke
     func getWriteableTeams(program: String) {
         var swiftArray: [String] = [String]()
         userRef!.childByAppendingPath("writeableTeams").observeEventType(.Value, withBlock: { snapshot in
-            if let writeableTeams = snapshot.value.objectForKey(program) {
-                let teamsData: NSArray = writeableTeams as! NSArray
-                print(teamsData)
-                for items in teamsData {
-                    swiftArray.append(String(items))
+            if snapshot.exists() {
+                if let writeableTeams = snapshot.value.objectForKey(program) {
+                    let teamsData: NSArray = writeableTeams as! NSArray
+                    print(teamsData)
+                    for items in teamsData {
+                        swiftArray.append(String(items))
+                    }
+                    print(swiftArray)
+                    swiftArray.sortInPlace()
+                    swiftArray.insert("Select a team", atIndex: 0)
+                    print(swiftArray)
                 }
-                print(swiftArray)
-                swiftArray.sortInPlace()
-                swiftArray.insert("Select a team", atIndex: 0)
-                print(swiftArray)
             } else {
                 swiftArray.append("No availible teams")
             }

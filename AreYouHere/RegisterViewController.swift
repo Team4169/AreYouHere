@@ -30,8 +30,8 @@ class RegisterViewController: UIViewController {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(RegisterViewController.gotLoginError), name: "\(uniqueNotificationKey).Login.loginUser.error", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(RegisterViewController.gotLoginSuccess), name: "\(uniqueNotificationKey).Login.loginUser.success", object: nil)
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(RegisterViewController.keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(RegisterViewController.keyboardWillHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
+//        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(RegisterViewController.keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil)
+//        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(RegisterViewController.keyboardWillHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
     }
 
     override func didReceiveMemoryWarning() {

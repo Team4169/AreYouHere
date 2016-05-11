@@ -16,7 +16,6 @@
 		04C18DF11CC53AD900DE272C /* EditRecordsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C18DF01CC53AD900DE272C /* EditRecordsViewController.swift */; };
 		04C18DF31CC5824600DE272C /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C18DF21CC5824600DE272C /* RegisterViewController.swift */; };
 		9C373F5F720CC46357603BF7 /* Pods_AreYouHere.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E89E57E3B17D0033A296F7F0 /* Pods_AreYouHere.framework */; };
-		C1040F191CDBC2D6004A7C96 /* LoginLoadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1040F181CDBC2D6004A7C96 /* LoginLoadViewController.swift */; };
 		C11D4B211CD27D56003593F7 /* Variables.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11D4B201CD27D56003593F7 /* Variables.swift */; };
 		C1277F491CB6C73D00F4B046 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1277F481CB6C73D00F4B046 /* AppDelegate.swift */; };
 		C1277F4E1CB6C73D00F4B046 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1277F4C1CB6C73D00F4B046 /* Main.storyboard */; };
@@ -57,7 +56,6 @@
 		04C18DF21CC5824600DE272C /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		72478EFF93EE691EDFAED989 /* Pods-AreYouHere.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AreYouHere.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AreYouHere/Pods-AreYouHere.debug.xcconfig"; sourceTree = "<group>"; };
 		B1EEA4278B12C4F554A593FA /* Pods-AreYouHere.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AreYouHere.release.xcconfig"; path = "Pods/Target Support Files/Pods-AreYouHere/Pods-AreYouHere.release.xcconfig"; sourceTree = "<group>"; };
-		C1040F181CDBC2D6004A7C96 /* LoginLoadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginLoadViewController.swift; sourceTree = "<group>"; };
 		C11D4B201CD27D56003593F7 /* Variables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Variables.swift; sourceTree = "<group>"; };
 		C1277F451CB6C73D00F4B046 /* AreYouHere.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AreYouHere.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1277F481CB6C73D00F4B046 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -131,7 +129,6 @@
 				C1277F481CB6C73D00F4B046 /* AppDelegate.swift */,
 				C1277F4C1CB6C73D00F4B046 /* Main.storyboard */,
 				C171B8A81CE0FAC000F68AB0 /* CreateTeamViewController.swift */,
-				C1040F181CDBC2D6004A7C96 /* LoginLoadViewController.swift */,
 				04C18DF21CC5824600DE272C /* RegisterViewController.swift */,
 				04C18DEE1CC53AC800DE272C /* ViewRecordsViewController.swift */,
 				04C18DF01CC53AD900DE272C /* EditRecordsViewController.swift */,
@@ -375,7 +372,6 @@
 				C11D4B211CD27D56003593F7 /* Variables.swift in Sources */,
 				C1D0088B1CBD64CD00EE89E4 /* DashboardViewController.swift in Sources */,
 				04C18DED1CC53AB900DE272C /* StartMeetingViewController.swift in Sources */,
-				C1040F191CDBC2D6004A7C96 /* LoginLoadViewController.swift in Sources */,
 				C171B8A91CE0FAC000F68AB0 /* CreateTeamViewController.swift in Sources */,
 				04C18DF11CC53AD900DE272C /* EditRecordsViewController.swift in Sources */,
 				C1277F491CB6C73D00F4B046 /* AppDelegate.swift in Sources */,
