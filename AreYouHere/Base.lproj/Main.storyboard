@@ -202,7 +202,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="usi-wF-3Dh">
-                                <rect key="frame" x="257" y="245" width="87" height="30"/>
+                                <rect key="frame" x="257" y="217" width="87" height="30"/>
                                 <state key="normal" title="Create Team"/>
                                 <connections>
                                     <action selector="hitCreate:" destination="PlI-hx-7Xc" eventType="touchUpInside" id="oHs-kk-AZY"/>
@@ -234,14 +234,22 @@
                                     <action selector="segmentedIndexChanged:" destination="PlI-hx-7Xc" eventType="valueChanged" id="1T1-4M-hdz"/>
                                 </connections>
                             </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CnU-jI-UJs">
+                                <rect key="frame" x="288" y="289" width="24" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="B4h-Zi-czP" firstAttribute="centerX" secondItem="nKa-Iz-fvF" secondAttribute="centerX" id="43W-gt-GtI"/>
                             <constraint firstItem="Dfj-zZ-lwf" firstAttribute="width" secondItem="nKa-Iz-fvF" secondAttribute="width" id="Ip0-ZW-fB7"/>
-                            <constraint firstItem="usi-wF-3Dh" firstAttribute="centerY" secondItem="nKa-Iz-fvF" secondAttribute="centerY" id="KiQ-e0-lMO"/>
                             <constraint firstItem="Dfj-zZ-lwf" firstAttribute="top" secondItem="B4h-Zi-czP" secondAttribute="bottom" constant="35" id="LbQ-Fg-tsX"/>
+                            <constraint firstItem="CnU-jI-UJs" firstAttribute="top" secondItem="usi-wF-3Dh" secondAttribute="bottom" constant="50" id="QEG-7F-NFA"/>
                             <constraint firstItem="9u3-3m-Hy6" firstAttribute="top" secondItem="Dfj-zZ-lwf" secondAttribute="bottom" id="QnD-2m-usV"/>
+                            <constraint firstItem="CnU-jI-UJs" firstAttribute="centerY" secondItem="nKa-Iz-fvF" secondAttribute="centerY" id="UNW-Vu-n87"/>
+                            <constraint firstItem="CnU-jI-UJs" firstAttribute="centerX" secondItem="nKa-Iz-fvF" secondAttribute="centerX" id="bOl-Tg-k9n"/>
                             <constraint firstItem="usi-wF-3Dh" firstAttribute="centerX" secondItem="nKa-Iz-fvF" secondAttribute="centerX" id="eij-dA-qlg"/>
                             <constraint firstItem="CFm-60-eOi" firstAttribute="centerX" secondItem="nKa-Iz-fvF" secondAttribute="centerX" id="fW0-4t-Mpe"/>
                             <constraint firstItem="Dfj-zZ-lwf" firstAttribute="centerX" secondItem="nKa-Iz-fvF" secondAttribute="centerX" id="xG6-6y-Dal"/>
@@ -270,8 +278,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="kg4-Ci-I1v">
-                                <rect key="frame" x="173" y="72" width="254" height="29"/>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="kg4-Ci-I1v">
+                                <rect key="frame" x="189" y="248" width="223" height="29"/>
                                 <segments>
                                     <segment title="FRC"/>
                                     <segment title="FTC"/>
@@ -280,29 +288,83 @@
                                 </segments>
                                 <connections>
                                     <action selector="segmentedIndexChanged:" destination="PlI-hx-7Xc" eventType="valueChanged" id="NIC-Gn-r1h"/>
+                                    <action selector="segmentedIndexChanged:" destination="Ep8-0u-8ns" eventType="valueChanged" id="Xgi-Ar-eP0"/>
                                 </connections>
                             </segmentedControl>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Team Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JkO-nu-NJ7">
-                                <rect key="frame" x="244" y="108" width="112" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Team Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JkO-nu-NJ7">
+                                <rect key="frame" x="244" y="284" width="112" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Team Nickname" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YlC-4V-nhR">
-                                <rect key="frame" x="240" y="146" width="121" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Team Nickname" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YlC-4V-nhR">
+                                <rect key="frame" x="236" y="322" width="125" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mVd-Wp-wfn">
-                                <rect key="frame" x="180" y="184" width="240" height="128"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AVt-dQ-ehH">
+                                <rect key="frame" x="275" y="382" width="46" height="30"/>
+                                <state key="normal" title="Create"/>
+                                <connections>
+                                    <action selector="hitCreate:" destination="Ep8-0u-8ns" eventType="touchUpInside" id="AnJ-7s-IJd"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="JkO-nu-NJ7" secondAttribute="trailing" constant="150" id="C6c-8E-nCd"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="YlC-4V-nhR" secondAttribute="trailing" constant="150" id="LGU-Hc-5pd"/>
+                            <constraint firstItem="YlC-4V-nhR" firstAttribute="centerX" secondItem="YSK-hy-wlX" secondAttribute="centerX" id="M7b-I6-hdx"/>
+                            <constraint firstItem="kg4-Ci-I1v" firstAttribute="centerX" secondItem="YSK-hy-wlX" secondAttribute="centerX" id="RQd-BD-7Ev"/>
+                            <constraint firstItem="kg4-Ci-I1v" firstAttribute="leading" secondItem="YSK-hy-wlX" secondAttribute="leadingMargin" constant="150" id="SSD-gA-Bo6"/>
+                            <constraint firstItem="YlC-4V-nhR" firstAttribute="top" secondItem="JkO-nu-NJ7" secondAttribute="bottom" constant="10" id="VZB-3T-h29"/>
+                            <constraint firstItem="JkO-nu-NJ7" firstAttribute="centerY" secondItem="YSK-hy-wlX" secondAttribute="centerY" id="VuB-k5-WUq"/>
+                            <constraint firstItem="YlC-4V-nhR" firstAttribute="leading" secondItem="YSK-hy-wlX" secondAttribute="leadingMargin" constant="150" id="YJy-8N-R7U"/>
+                            <constraint firstItem="JkO-nu-NJ7" firstAttribute="centerX" secondItem="YSK-hy-wlX" secondAttribute="centerX" id="ZgI-eQ-q5X"/>
+                            <constraint firstItem="AVt-dQ-ehH" firstAttribute="centerX" secondItem="YSK-hy-wlX" secondAttribute="centerX" id="e3I-RK-XXD"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="kg4-Ci-I1v" secondAttribute="trailing" constant="150" id="llf-WX-svr"/>
+                            <constraint firstItem="JkO-nu-NJ7" firstAttribute="top" secondItem="kg4-Ci-I1v" secondAttribute="bottom" constant="10" id="nIW-hj-ZnN"/>
+                            <constraint firstItem="AVt-dQ-ehH" firstAttribute="top" secondItem="YlC-4V-nhR" secondAttribute="bottom" constant="30" id="tPL-DG-QCT"/>
+                            <constraint firstItem="JkO-nu-NJ7" firstAttribute="leading" secondItem="YSK-hy-wlX" secondAttribute="leadingMargin" constant="150" id="z3J-2Z-qo4"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="segmentedControl" destination="kg4-Ci-I1v" id="hOr-gz-2kH"/>
+                        <outlet property="teamNameField" destination="YlC-4V-nhR" id="XGa-hJ-VUm"/>
+                        <outlet property="teamNumField" destination="JkO-nu-NJ7" id="Ddw-qK-vhM"/>
+                        <segue destination="3q6-hg-wPA" kind="show" identifier="createTeamToEditTeam" id="x6j-b5-txf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jxN-tY-Hem" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4656" y="-2063"/>
+        </scene>
+        <!--Edit Team Table View Controller-->
+        <scene sceneID="Vl7-Mz-r6F">
+            <objects>
+                <tableViewController id="3q6-hg-wPA" customClass="EditTeamTableViewController" customModule="AreYouHere" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="iWZ-tR-xvF">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="sgG-Un-t6n">
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sgG-Un-t6n" id="Hhz-jg-9IL">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="3q6-hg-wPA" id="fAc-0V-wKL"/>
+                            <outlet property="delegate" destination="3q6-hg-wPA" id="KDg-ZO-lc2"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Ju-AB-pQ9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5525" y="-1632"/>
         </scene>
         <!--Add Time View Controller-->
         <scene sceneID="9uo-I5-jPv">
