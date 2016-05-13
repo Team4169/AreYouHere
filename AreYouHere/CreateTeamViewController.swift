@@ -31,18 +31,31 @@ class CreateTeamViewController: UIViewController {
     
     @IBAction func hitCreate(sender: AnyObject) {
         view.addSubview(overlay!)
-        if (self.pickerSelection != nil) && (self.teamNameField.text! != "") && (self.teamNumField.text! != "") {
-            let ref = userRef?.childByAppendingPath("writeableTeams/\(pickerSelection)")
-            ref!.observeSingleEventOfType(.Value, withBlock: { snapshot in
-                var returningTeams = [Int : String]()
-                if snapshot.exists() {
-                    returningTeams = snapshot.value as! Dictionary
-                    //START HERE. GET EXISTING TEAMS. THEN ADD NEW TEAM TO DICT. THEN PUSH. THAN DO SOMETHING WITH NS NOTIFY
-                }
-            })
+        var goForCreate = false
+        if (self.pickerSelection != nil) && (self.teamNameField.text! != "") && (self.teamNumField.text! != "") && checkForExistingTeam(Int(self.teamNameField.text!)!) {
+            
         }
         
 //        NSNotificationCenter.defaultCenter().postNotificationName("\(uniqueNotificationKey).CreateTeamVC.hitCreate._______________", object: nil)
+    }
+    
+    func createTeam(program: String, teamName: String, teamNum: Int) {
+        let programWriteRef = userRef?.childByAppendingPath("writeableTeams/\(pickerSelection)")
+        let teamsDirRef = rootRef.childByAppendingPath("teams")
+        programWriteRef!.observeSingleEventOfType(.Value, withBlock: { snapshot in
+            if snapshot.exists() {
+                programWriteRef?.updateChildValues([teamNum : teamName])
+                //START HERE. GET EXISTING TEAMS. THEN ADD NEW TEAM TO DICT. THEN PUSH. THAN DO SOMETHING WITH NS NOTIFY
+                //YOU MUST CHECK IF TEAM EXISTS ALREADY!!!!
+            } else {
+                programWriteRef?.setValue([teamNum : teamName])
+            }
+            teamsDirRef.updateChildValues([teamNum : teamName])
+        })
+    }
+    
+    func checkForExistingTeam(teamNum: Int) -> Bool {
+        return true
     }
 
     @IBAction func segmentedIndexChanged(sender: AnyObject) {
