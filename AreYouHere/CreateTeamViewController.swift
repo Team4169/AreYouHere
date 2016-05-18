@@ -22,6 +22,8 @@ class CreateTeamViewController: UIViewController {
         overlay = UIView(frame: view.frame)
         overlay!.backgroundColor = UIColor.whiteColor()
         overlay!.alpha = 0.8
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(CreateTeamViewController.goToEditVC), name: "\(uniqueNotificationKey).CreateTeamVC.createTeam", object: nil)
     }
 
     override func didReceiveMemoryWarning() {
@@ -32,11 +34,21 @@ class CreateTeamViewController: UIViewController {
     @IBAction func hitCreate(sender: AnyObject) {
         view.addSubview(overlay!)
         var goForCreate = false
-        if (self.pickerSelection != nil) && (self.teamNameField.text! != "") && (self.teamNumField.text! != "") && checkForExistingTeam(Int(self.teamNameField.text!)!) {
-            
+        if (self.pickerSelection != nil) && (self.teamNameField.text! != "") && (self.teamNumField.text! != "") && !checkForExistingTeam(Int(self.teamNameField.text!)!) {
+            goForCreate = true
+        } else {
+            overlay?.removeFromSuperview()
+            let alert = UIAlertController(title: "Team Create Error", message: "Team creation has failed.", preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "Try Again", style: UIAlertActionStyle.Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
         }
-        
-//        NSNotificationCenter.defaultCenter().postNotificationName("\(uniqueNotificationKey).CreateTeamVC.hitCreate._______________", object: nil)
+        if goForCreate {
+            createTeam(self.pickerSelection!, teamName: self.teamNameField.text!, teamNum: Int(self.teamNameField.text!)!)
+        }
+    }
+    
+    func checkForExistingTeam(teamNum: Int) -> Bool {
+        return false
     }
     
     func createTeam(program: String, teamName: String, teamNum: Int) {
@@ -45,17 +57,16 @@ class CreateTeamViewController: UIViewController {
         programWriteRef!.observeSingleEventOfType(.Value, withBlock: { snapshot in
             if snapshot.exists() {
                 programWriteRef?.updateChildValues([teamNum : teamName])
-                //START HERE. GET EXISTING TEAMS. THEN ADD NEW TEAM TO DICT. THEN PUSH. THAN DO SOMETHING WITH NS NOTIFY
-                //YOU MUST CHECK IF TEAM EXISTS ALREADY!!!!
             } else {
                 programWriteRef?.setValue([teamNum : teamName])
             }
             teamsDirRef.updateChildValues([teamNum : teamName])
+            NSNotificationCenter.defaultCenter().postNotificationName("\(uniqueNotificationKey).CreateTeamVC.createTeam", object: nil)
         })
     }
     
-    func checkForExistingTeam(teamNum: Int) -> Bool {
-        return true
+    func goToEditVC() {
+        performSegueWithIdentifier("createTeamToEditTeam", sender: nil)
     }
 
     @IBAction func segmentedIndexChanged(sender: AnyObject) {
