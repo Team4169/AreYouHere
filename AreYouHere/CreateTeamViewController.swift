@@ -17,6 +17,7 @@ class CreateTeamViewController: UIViewController {
     var overlay: UIView?
 
     override func viewDidLoad() {
+        print("CREATE_TEAM_VC_LOAD")
         super.viewDidLoad()
         
         overlay = UIView(frame: view.frame)
@@ -34,7 +35,8 @@ class CreateTeamViewController: UIViewController {
     @IBAction func hitCreate(sender: AnyObject) {
         view.addSubview(overlay!)
         var goForCreate = false
-        if (self.pickerSelection != nil) && (self.teamNameField.text! != "") && (self.teamNumField.text! != "") && !checkForExistingTeam(Int(self.teamNameField.text!)!) {
+        if (self.pickerSelection != nil) && (self.teamNameField.text! != "") && (self.teamNameField.text! != "") && !checkForExistingTeam(Int(self.teamNumField.text!)!) {
+            print("go for create")
             goForCreate = true
         } else {
             overlay?.removeFromSuperview()
@@ -43,7 +45,7 @@ class CreateTeamViewController: UIViewController {
             self.presentViewController(alert, animated: true, completion: nil)
         }
         if goForCreate {
-            createTeam(self.pickerSelection!, teamName: self.teamNameField.text!, teamNum: Int(self.teamNameField.text!)!)
+            createTeam(self.pickerSelection!, teamName: self.teamNameField.text!, teamNum: Int(self.teamNumField.text!)!)
         }
     }
     
@@ -52,15 +54,24 @@ class CreateTeamViewController: UIViewController {
     }
     
     func createTeam(program: String, teamName: String, teamNum: Int) {
-        let programWriteRef = userRef?.childByAppendingPath("writeableTeams/\(pickerSelection)")
+        let programWriteRef = userRef?.childByAppendingPath("writeableTeams/\(pickerSelection)")!
+        print("programWriteRef made")
         let teamsDirRef = rootRef.childByAppendingPath("teams")
+        print("teamsDirRef made")
         programWriteRef!.observeSingleEventOfType(.Value, withBlock: { snapshot in
+            print("in snapshot")
+            print(snapshot)
             if snapshot.exists() {
+                print("if snapshot exists")
                 programWriteRef?.updateChildValues([teamNum : teamName])
+                print("write team to user existing snap")
             } else {
                 programWriteRef?.setValue([teamNum : teamName])
+                print("write team to user no snap")
             }
             teamsDirRef.updateChildValues([teamNum : teamName])
+            print("add to teams dir")
+            //MAYBE: make teams dir a full on directory that lists the admins and other things
             NSNotificationCenter.defaultCenter().postNotificationName("\(uniqueNotificationKey).CreateTeamVC.createTeam", object: nil)
         })
     }
