@@ -54,19 +54,19 @@ class CreateTeamViewController: UIViewController {
     }
     
     func createTeam(program: String, teamName: String, teamNum: Int) {
-        let programWriteRef = userRef?.childByAppendingPath("writeableTeams/\(pickerSelection)")!
-        print("programWriteRef made")
+        let programWriteRef = (userRef?.childByAppendingPath("writeableTeams/\(pickerSelection!)"))!
+        print("programWriteRef made: \(programWriteRef)")
         let teamsDirRef = rootRef.childByAppendingPath("teams")
-        print("teamsDirRef made")
-        programWriteRef!.observeSingleEventOfType(.Value, withBlock: { snapshot in
+        print("teamsDirRef made: \(teamsDirRef)")
+        programWriteRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
             print("in snapshot")
             print(snapshot)
             if snapshot.exists() {
                 print("if snapshot exists")
-                programWriteRef?.updateChildValues([teamNum : teamName])
+                programWriteRef.updateChildValues([teamNum : teamName])
                 print("write team to user existing snap")
             } else {
-                programWriteRef?.setValue([teamNum : teamName])
+                programWriteRef.setValue([teamNum : teamName])
                 print("write team to user no snap")
             }
             teamsDirRef.updateChildValues([teamNum : teamName])
