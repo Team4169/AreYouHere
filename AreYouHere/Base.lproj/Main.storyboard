@@ -326,6 +326,12 @@
                             <constraint firstItem="AVt-dQ-ehH" firstAttribute="top" secondItem="YlC-4V-nhR" secondAttribute="bottom" constant="30" id="tPL-DG-QCT"/>
                             <constraint firstItem="JkO-nu-NJ7" firstAttribute="leading" secondItem="YSK-hy-wlX" secondAttribute="leadingMargin" constant="150" id="z3J-2Z-qo4"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="SSD-gA-Bo6"/>
+                                <exclude reference="llf-WX-svr"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="segmentedControl" destination="kg4-Ci-I1v" id="hOr-gz-2kH"/>

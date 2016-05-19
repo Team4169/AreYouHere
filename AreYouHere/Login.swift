@@ -12,7 +12,7 @@ import Firebase
 class Login : NSObject {
     
     func createUser(email: String, password: String, name: String) {
-        rootRef.createUser(email, password: password, withValueCompletionBlock: { error, result in
+        FIRAuth.auth()?.createUserWithEmail(email, password: password, completion: { (user, error) in
             if error != nil {
                 print(error)
                 NSNotificationCenter.defaultCenter().postNotificationName("\(uniqueNotificationKey).Login.createUser.error", object: nil)
@@ -20,7 +20,7 @@ class Login : NSObject {
                 let eid = email.base64Encoded()
                 print("Successfully created user account with eid: \(eid)")
                 
-                let newUserRef = rootRef.childByAppendingPath("users/\(eid)")
+                let newUserRef = rootRef.child("users/\(eid)")
                 let newUserData = ["name":name, "email":email]
                 newUserRef.setValue(newUserData)
                 NSNotificationCenter.defaultCenter().postNotificationName("\(uniqueNotificationKey).Login.createUser.success", object: nil)
@@ -29,13 +29,13 @@ class Login : NSObject {
     }
     
     func loginUser(email: String, password: String) {
-        rootRef.authUser(email, password: password, withCompletionBlock: { error, authData in
+        FIRAuth.auth()?.signInWithEmail(email, password: password, completion: { (user, error) in
             if error != nil {
                 print(error)
                 NSNotificationCenter.defaultCenter().postNotificationName("\(uniqueNotificationKey).Login.loginUser.error", object: nil)
             } else {
                 let eid = email.base64Encoded()
-                userRef = rootRef.childByAppendingPath("users/\(eid)")
+                userRef = rootRef.child("users/\(eid)")
                 print("Successfully logged in user with eid: \(eid)")
                 NSNotificationCenter.defaultCenter().postNotificationName("\(uniqueNotificationKey).Login.loginUser.success", object: nil)
             }

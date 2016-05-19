@@ -65,9 +65,9 @@ class ManageTeamsViewController: UIViewController, UIPickerViewDelegate, UIPicke
     
     func getWriteableTeams(program: String) {
         var swiftArray: [String] = [String]()
-        userRef!.childByAppendingPath("writeableTeams").observeEventType(.Value, withBlock: { snapshot in
+        userRef!.child("writeableTeams").observeEventType(.Value, withBlock: { snapshot in
             if snapshot.exists() {
-                if let writeableTeams = snapshot.value.objectForKey(program) {
+                if let writeableTeams = snapshot.value!.objectForKey(program) {
                     let teamsData: NSArray = writeableTeams as! NSArray
                     print(teamsData)
                     for items in teamsData {

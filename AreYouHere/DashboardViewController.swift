@@ -19,7 +19,7 @@ class DashboardViewController: UIViewController {
         print(userRef)
         userRef!.observeSingleEventOfType(.Value, withBlock: { snapshot in
             print("got snap")
-            if let name = snapshot.value.objectForKey("name") {
+            if let name = snapshot.value!.objectForKey("name") {
                 print(name)
                 self.helloNameLabel.text = "Hello, \(name)!"
             } else {

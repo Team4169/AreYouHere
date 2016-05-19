@@ -15,6 +15,8 @@ class CreateTeamViewController: UIViewController {
     
     var pickerSelection: String?
     var overlay: UIView?
+    
+    let teamsDirRef = rootRef.child("teams")
 
     override func viewDidLoad() {
         print("CREATE_TEAM_VC_LOAD")
@@ -25,6 +27,8 @@ class CreateTeamViewController: UIViewController {
         overlay!.alpha = 0.8
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(CreateTeamViewController.goToEditVC), name: "\(uniqueNotificationKey).CreateTeamVC.createTeam", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(CreateTeamViewController.noGoForCreate), name: "\(uniqueNotificationKey).CreateTeamVC.checkForExistingTeam.taken", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(CreateTeamViewController.goForCreate), name: "\(uniqueNotificationKey).CreateTeamVC.checkForExistingTeam.free", object: nil)
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,43 +38,48 @@ class CreateTeamViewController: UIViewController {
     
     @IBAction func hitCreate(sender: AnyObject) {
         view.addSubview(overlay!)
-        var goForCreate = false
-        if (self.pickerSelection != nil) && (self.teamNameField.text! != "") && (self.teamNameField.text! != "") && !checkForExistingTeam(Int(self.teamNumField.text!)!) {
-            print("go for create")
-            goForCreate = true
+        if (self.pickerSelection != nil) && (self.teamNameField.text! != "") && (self.teamNameField.text! != "") {
+            checkForExistingTeam(self.teamNumField.text!)
         } else {
             overlay?.removeFromSuperview()
-            let alert = UIAlertController(title: "Team Create Error", message: "Team creation has failed.", preferredStyle: UIAlertControllerStyle.Alert)
+            let alert = UIAlertController(title: "Team Create Error", message: "All fields are required.", preferredStyle: UIAlertControllerStyle.Alert)
             alert.addAction(UIAlertAction(title: "Try Again", style: UIAlertActionStyle.Default, handler: nil))
             self.presentViewController(alert, animated: true, completion: nil)
         }
-        if goForCreate {
-            createTeam(self.pickerSelection!, teamName: self.teamNameField.text!, teamNum: Int(self.teamNumField.text!)!)
-        }
     }
     
-    func checkForExistingTeam(teamNum: Int) -> Bool {
-        return false
-    }
-    
-    func createTeam(program: String, teamName: String, teamNum: Int) {
-        let programWriteRef = (userRef?.childByAppendingPath("writeableTeams/\(pickerSelection!)"))!
-        print("programWriteRef made: \(programWriteRef)")
-        let teamsDirRef = rootRef.childByAppendingPath("teams")
-        print("teamsDirRef made: \(teamsDirRef)")
-        programWriteRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
-            print("in snapshot")
-            print(snapshot)
-            if snapshot.exists() {
-                print("if snapshot exists")
-                programWriteRef.updateChildValues([teamNum : teamName])
-                print("write team to user existing snap")
+    func checkForExistingTeam(teamNum: String) {
+        print("in method")
+        teamsDirRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
+            print("in block")
+            if let result = snapshot.valueForKey(teamNum) {
+                //START HERE
+                print("taken")
+                NSNotificationCenter.defaultCenter().postNotificationName("\(uniqueNotificationKey).CreateTeamVC.checkForExistingTeam.taken", object: nil)
             } else {
-                programWriteRef.setValue([teamNum : teamName])
-                print("write team to user no snap")
+                print("free")
+                NSNotificationCenter.defaultCenter().postNotificationName("\(uniqueNotificationKey).CreateTeamVC.checkForExistingTeam.free", object: nil)
             }
+        })
+    }
+    
+    func noGoForCreate() {
+        overlay?.removeFromSuperview()
+        let alert = UIAlertController(title: "Team Create Error", message: "Team is already administred by __________", preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    func goForCreate() {
+        createTeam(self.pickerSelection!, teamName: self.teamNameField.text!, teamNum: self.teamNumField.text!)
+    }
+    
+    func createTeam(program: String, teamName: String, teamNum: String) {
+        let programWriteRef = userRef?.child("writeableTeams/\(pickerSelection!)")
+        let teamsDirRef = rootRef.child("teams\(pickerSelection!)")
+        programWriteRef!.observeSingleEventOfType(.Value, withBlock: { snapshot in
+            programWriteRef!.updateChildValues([teamNum : teamName])
             teamsDirRef.updateChildValues([teamNum : teamName])
-            print("add to teams dir")
             //MAYBE: make teams dir a full on directory that lists the admins and other things
             NSNotificationCenter.defaultCenter().postNotificationName("\(uniqueNotificationKey).CreateTeamVC.createTeam", object: nil)
         })

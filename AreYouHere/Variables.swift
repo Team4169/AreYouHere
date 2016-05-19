@@ -9,10 +9,10 @@
 import Foundation
 import Firebase
 
-let rootRef = Firebase(url: "http://areyouhere.firebaseio.com")
-var userRef: Firebase?
+let rootRef = FIRDatabase.database().reference()
+var userRef: FIRDatabaseReference?
 
-let uniqueNotificationKey = "com.github.thatnerdjack"
+let uniqueNotificationKey = "com.github.thatnerdjack.AreYouHere"
 
 extension String {
     
