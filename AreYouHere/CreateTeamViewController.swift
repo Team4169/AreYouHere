@@ -52,7 +52,7 @@ class CreateTeamViewController: UIViewController {
         print("in method")
         teamsDirRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
             print("in block")
-            if let result = snapshot.valueForKey(teamNum) {
+            if let team = snapshot.value![teamNum] as? String {
                 //START HERE
                 print("taken")
                 NSNotificationCenter.defaultCenter().postNotificationName("\(uniqueNotificationKey).CreateTeamVC.checkForExistingTeam.taken", object: nil)
@@ -76,7 +76,7 @@ class CreateTeamViewController: UIViewController {
     
     func createTeam(program: String, teamName: String, teamNum: String) {
         let programWriteRef = userRef?.child("writeableTeams/\(pickerSelection!)")
-        let teamsDirRef = rootRef.child("teams\(pickerSelection!)")
+        let teamsDirRef = rootRef.child("teams/\(pickerSelection!)")
         programWriteRef!.observeSingleEventOfType(.Value, withBlock: { snapshot in
             programWriteRef!.updateChildValues([teamNum : teamName])
             teamsDirRef.updateChildValues([teamNum : teamName])
