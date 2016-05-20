@@ -6,6 +6,8 @@
 //  Copyright © 2016 Jack Doherty. All rights reserved.
 //
 
+//Currently trying to: 1. Get name of current/main admin (first in list) and 2. Flesh out teams dir
+
 import UIKit
 
 class CreateTeamViewController: UIViewController {
@@ -15,8 +17,6 @@ class CreateTeamViewController: UIViewController {
     
     var pickerSelection: String?
     var overlay: UIView?
-    
-    let teamsDirRef = rootRef.child("teams")
 
     override func viewDidLoad() {
         print("CREATE_TEAM_VC_LOAD")
@@ -27,6 +27,7 @@ class CreateTeamViewController: UIViewController {
         overlay!.alpha = 0.8
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(CreateTeamViewController.goToEditVC), name: "\(uniqueNotificationKey).CreateTeamVC.createTeam", object: nil)
+        
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(CreateTeamViewController.noGoForCreate), name: "\(uniqueNotificationKey).CreateTeamVC.checkForExistingTeam.taken", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(CreateTeamViewController.goForCreate), name: "\(uniqueNotificationKey).CreateTeamVC.checkForExistingTeam.free", object: nil)
     }
@@ -49,15 +50,11 @@ class CreateTeamViewController: UIViewController {
     }
     
     func checkForExistingTeam(teamNum: String) {
-        print("in method")
+        let teamsDirRef = rootRef.child(self.pickerSelection!)
         teamsDirRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
-            print("in block")
-            if let team = snapshot.value![teamNum] as? String {
-                //START HERE
-                print("taken")
+            if let _ = snapshot.value![teamNum] as? String {
                 NSNotificationCenter.defaultCenter().postNotificationName("\(uniqueNotificationKey).CreateTeamVC.checkForExistingTeam.taken", object: nil)
             } else {
-                print("free")
                 NSNotificationCenter.defaultCenter().postNotificationName("\(uniqueNotificationKey).CreateTeamVC.checkForExistingTeam.free", object: nil)
             }
         })
@@ -79,7 +76,8 @@ class CreateTeamViewController: UIViewController {
         let teamsDirRef = rootRef.child("teams/\(pickerSelection!)")
         programWriteRef!.observeSingleEventOfType(.Value, withBlock: { snapshot in
             programWriteRef!.updateChildValues([teamNum : teamName])
-            teamsDirRef.updateChildValues([teamNum : teamName])
+            teamsDirRef.updateChildValues([teamNum : ["admin" : "email"]])
+            //CODE ABOVE IS NOT TESTED AND NEEDS WORK
             //MAYBE: make teams dir a full on directory that lists the admins and other things
             NSNotificationCenter.defaultCenter().postNotificationName("\(uniqueNotificationKey).CreateTeamVC.createTeam", object: nil)
         })
