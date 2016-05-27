@@ -15,17 +15,7 @@ class DashboardViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("viewDidLoad")
-        print(userRef)
-        userRef!.observeSingleEventOfType(.Value, withBlock: { snapshot in
-            print("got snap")
-            if let name = snapshot.value!.objectForKey("name") {
-                print(name)
-                self.helloNameLabel.text = "Hello, \(name)!"
-            } else {
-                self.helloNameLabel.text = "ERROR"
-            }
-        })
+        self.helloNameLabel.text = "Hello, \(AppState.sharedInstance.name!)!"
     }
 
     override func didReceiveMemoryWarning() {

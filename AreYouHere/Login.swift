@@ -23,6 +23,10 @@ class Login : NSObject {
                 let newUserRef = rootRef.child("users/\(eid)")
                 let newUserData = ["name":name, "email":email]
                 newUserRef.setValue(newUserData)
+                
+                AppState.sharedInstance.name = name
+                AppState.sharedInstance.eid = eid
+                AppState.sharedInstance.signedIn = true
                 NSNotificationCenter.defaultCenter().postNotificationName("\(uniqueNotificationKey).Login.createUser.success", object: nil)
             }
         })
@@ -36,8 +40,17 @@ class Login : NSObject {
             } else {
                 let eid = email.base64Encoded()
                 userRef = rootRef.child("users/\(eid)")
-                print("Successfully logged in user with eid: \(eid)")
-                NSNotificationCenter.defaultCenter().postNotificationName("\(uniqueNotificationKey).Login.loginUser.success", object: nil)
+                
+                userRef?.observeSingleEventOfType(.Value, withBlock: { snapshot in
+                    let name = snapshot.value!["name"] as? String
+                    
+                    AppState.sharedInstance.name = name
+                    AppState.sharedInstance.eid = eid
+                    AppState.sharedInstance.signedIn = true
+                    
+                    print("Successfully logged in user with eid: \(eid)")
+                    NSNotificationCenter.defaultCenter().postNotificationName("\(uniqueNotificationKey).Login.loginUser.success", object: nil)
+                })
             }
         })
     }

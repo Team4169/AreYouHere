@@ -16,8 +16,9 @@
 		04C18DF11CC53AD900DE272C /* EditRecordsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C18DF01CC53AD900DE272C /* EditRecordsViewController.swift */; };
 		04C18DF31CC5824600DE272C /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C18DF21CC5824600DE272C /* RegisterViewController.swift */; };
 		04F2D7351CED051700446586 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04F2D7341CED051700446586 /* GoogleService-Info.plist */; };
-		29527F6D56DAC2B8ECFCDDBA /* Pods_AreYouHereTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8857E596D14DEB9E105FF9C /* Pods_AreYouHereTests.framework */; };
-		949391EDC72FD9418F4BA63C /* Pods_AreYouHere.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DB61FE9B0D3EC6AD5E146F0 /* Pods_AreYouHere.framework */; };
+		79B34E563DD8BA6BCAF18E2B /* Pods_AreYouHere.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B23AA60C552CBF5E74EFC98 /* Pods_AreYouHere.framework */; };
+		7B5AB2E512961D91973FFBAF /* Pods_AreYouHereUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39537B1EF72CBE4CEDAED9C9 /* Pods_AreYouHereUITests.framework */; };
+		7C21AC5D674436010A51011C /* Pods_AreYouHereTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A8BF33D2EC252D496AD261E /* Pods_AreYouHereTests.framework */; };
 		C11D4B211CD27D56003593F7 /* Variables.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11D4B201CD27D56003593F7 /* Variables.swift */; };
 		C1277F491CB6C73D00F4B046 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1277F481CB6C73D00F4B046 /* AppDelegate.swift */; };
 		C1277F4E1CB6C73D00F4B046 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1277F4C1CB6C73D00F4B046 /* Main.storyboard */; };
@@ -27,9 +28,9 @@
 		C1277F691CB6C73D00F4B046 /* AreYouHereUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1277F681CB6C73D00F4B046 /* AreYouHereUITests.swift */; };
 		C131D0D71CE4F10000DD6F9C /* EditTeamTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C131D0D61CE4F10000DD6F9C /* EditTeamTableViewController.swift */; };
 		C171B8A91CE0FAC000F68AB0 /* CreateTeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C171B8A81CE0FAC000F68AB0 /* CreateTeamViewController.swift */; };
+		C171D9071CF8C4DE00B06391 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C171D9061CF8C4DE00B06391 /* AppState.swift */; };
 		C1D008891CBD604D00EE89E4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D008881CBD604D00EE89E4 /* LoginViewController.swift */; };
 		C1D0088B1CBD64CD00EE89E4 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D0088A1CBD64CD00EE89E4 /* DashboardViewController.swift */; };
-		D3ABFC358499804889E21123 /* Pods_AreYouHereUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4475634CB5EC62FDC6F8F7C /* Pods_AreYouHereUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,11 +60,14 @@
 		04C18DF01CC53AD900DE272C /* EditRecordsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditRecordsViewController.swift; sourceTree = "<group>"; };
 		04C18DF21CC5824600DE272C /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		04F2D7341CED051700446586 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		486884936138121A64982D3B /* Pods-AreYouHereTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AreYouHereTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AreYouHereTests/Pods-AreYouHereTests.debug.xcconfig"; sourceTree = "<group>"; };
-		55AC904FFCC69FBB42D2A5D4 /* Pods-AreYouHere.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AreYouHere.release.xcconfig"; path = "Pods/Target Support Files/Pods-AreYouHere/Pods-AreYouHere.release.xcconfig"; sourceTree = "<group>"; };
-		57301ABFEDA9CD2352D83B68 /* Pods-AreYouHereTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AreYouHereTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AreYouHereTests/Pods-AreYouHereTests.release.xcconfig"; sourceTree = "<group>"; };
-		9DB61FE9B0D3EC6AD5E146F0 /* Pods_AreYouHere.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AreYouHere.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A0DC3F6CE103ADF930520154 /* Pods-AreYouHereUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AreYouHereUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AreYouHereUITests/Pods-AreYouHereUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		1B23AA60C552CBF5E74EFC98 /* Pods_AreYouHere.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AreYouHere.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1EC7C6E5D0A81E1E344ED6AA /* Pods-AreYouHereTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AreYouHereTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AreYouHereTests/Pods-AreYouHereTests.debug.xcconfig"; sourceTree = "<group>"; };
+		39537B1EF72CBE4CEDAED9C9 /* Pods_AreYouHereUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AreYouHereUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		55572348B4FF48C04D45571C /* Pods-AreYouHereUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AreYouHereUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AreYouHereUITests/Pods-AreYouHereUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		56C219381641F12195BF1C22 /* Pods-AreYouHereUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AreYouHereUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AreYouHereUITests/Pods-AreYouHereUITests.release.xcconfig"; sourceTree = "<group>"; };
+		6A8BF33D2EC252D496AD261E /* Pods_AreYouHereTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AreYouHereTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		75B964130C511F51BAD97C5E /* Pods-AreYouHere.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AreYouHere.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AreYouHere/Pods-AreYouHere.debug.xcconfig"; sourceTree = "<group>"; };
+		9339C8C9CE9E299AE7454792 /* Pods-AreYouHereTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AreYouHereTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AreYouHereTests/Pods-AreYouHereTests.release.xcconfig"; sourceTree = "<group>"; };
 		C11D4B201CD27D56003593F7 /* Variables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Variables.swift; sourceTree = "<group>"; };
 		C1277F451CB6C73D00F4B046 /* AreYouHere.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AreYouHere.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1277F481CB6C73D00F4B046 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -79,12 +83,10 @@
 		C1277F6A1CB6C73D00F4B046 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C131D0D61CE4F10000DD6F9C /* EditTeamTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditTeamTableViewController.swift; sourceTree = "<group>"; };
 		C171B8A81CE0FAC000F68AB0 /* CreateTeamViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateTeamViewController.swift; sourceTree = "<group>"; };
+		C171D9061CF8C4DE00B06391 /* AppState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		C1D008881CBD604D00EE89E4 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		C1D0088A1CBD64CD00EE89E4 /* DashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
-		CCCF26E48DEE39D52C71BAA2 /* Pods-AreYouHere.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AreYouHere.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AreYouHere/Pods-AreYouHere.debug.xcconfig"; sourceTree = "<group>"; };
-		D4475634CB5EC62FDC6F8F7C /* Pods_AreYouHereUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AreYouHereUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F67C97AC9ABB8B404A44D71A /* Pods-AreYouHereUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AreYouHereUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AreYouHereUITests/Pods-AreYouHereUITests.release.xcconfig"; sourceTree = "<group>"; };
-		F8857E596D14DEB9E105FF9C /* Pods_AreYouHereTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AreYouHereTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E9C6D86082E3714C35C8929F /* Pods-AreYouHere.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AreYouHere.release.xcconfig"; path = "Pods/Target Support Files/Pods-AreYouHere/Pods-AreYouHere.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,7 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				949391EDC72FD9418F4BA63C /* Pods_AreYouHere.framework in Frameworks */,
+				79B34E563DD8BA6BCAF18E2B /* Pods_AreYouHere.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -100,7 +102,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				29527F6D56DAC2B8ECFCDDBA /* Pods_AreYouHereTests.framework in Frameworks */,
+				7C21AC5D674436010A51011C /* Pods_AreYouHereTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -108,24 +110,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D3ABFC358499804889E21123 /* Pods_AreYouHereUITests.framework in Frameworks */,
+				7B5AB2E512961D91973FFBAF /* Pods_AreYouHereUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		A9CD327B143C99863D4B3EC3 /* Pods */ = {
+		AE9695EB15FC6EE3C0F475A2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				CCCF26E48DEE39D52C71BAA2 /* Pods-AreYouHere.debug.xcconfig */,
-				55AC904FFCC69FBB42D2A5D4 /* Pods-AreYouHere.release.xcconfig */,
-				486884936138121A64982D3B /* Pods-AreYouHereTests.debug.xcconfig */,
-				57301ABFEDA9CD2352D83B68 /* Pods-AreYouHereTests.release.xcconfig */,
-				A0DC3F6CE103ADF930520154 /* Pods-AreYouHereUITests.debug.xcconfig */,
-				F67C97AC9ABB8B404A44D71A /* Pods-AreYouHereUITests.release.xcconfig */,
+				1B23AA60C552CBF5E74EFC98 /* Pods_AreYouHere.framework */,
+				6A8BF33D2EC252D496AD261E /* Pods_AreYouHereTests.framework */,
+				39537B1EF72CBE4CEDAED9C9 /* Pods_AreYouHereUITests.framework */,
 			);
-			name = Pods;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		C1277F3C1CB6C73D00F4B046 = {
@@ -135,8 +134,8 @@
 				C1277F5C1CB6C73D00F4B046 /* AreYouHereTests */,
 				C1277F671CB6C73D00F4B046 /* AreYouHereUITests */,
 				C1277F461CB6C73D00F4B046 /* Products */,
-				A9CD327B143C99863D4B3EC3 /* Pods */,
-				FE9E83F5A0D1F2F0B858C8F3 /* Frameworks */,
+				D0A0671A904B9B53E443C15E /* Pods */,
+				AE9695EB15FC6EE3C0F475A2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -154,24 +153,25 @@
 			isa = PBXGroup;
 			children = (
 				04F2D7341CED051700446586 /* GoogleService-Info.plist */,
-				C1277F481CB6C73D00F4B046 /* AppDelegate.swift */,
-				C1277F4C1CB6C73D00F4B046 /* Main.storyboard */,
-				C131D0D61CE4F10000DD6F9C /* EditTeamTableViewController.swift */,
-				C171B8A81CE0FAC000F68AB0 /* CreateTeamViewController.swift */,
-				04C18DF21CC5824600DE272C /* RegisterViewController.swift */,
-				04C18DEE1CC53AC800DE272C /* ViewRecordsViewController.swift */,
-				04C18DF01CC53AD900DE272C /* EditRecordsViewController.swift */,
+				C1277F541CB6C73D00F4B046 /* Info.plist */,
 				04C18DEA1CC53AA800DE272C /* AddTimeViewController.swift */,
-				04C18DEC1CC53AB900DE272C /* StartMeetingViewController.swift */,
-				0418E8211CC5872100DF7223 /* Login.swift */,
-				C11D4B201CD27D56003593F7 /* Variables.swift */,
-				04C18DE61CC53A6400DE272C /* SettingsViewController.swift */,
-				04C18DE81CC53A8800DE272C /* ManageTeamsViewController.swift */,
+				C1277F481CB6C73D00F4B046 /* AppDelegate.swift */,
+				C171D9061CF8C4DE00B06391 /* AppState.swift */,
+				C171B8A81CE0FAC000F68AB0 /* CreateTeamViewController.swift */,
 				C1D0088A1CBD64CD00EE89E4 /* DashboardViewController.swift */,
+				04C18DF01CC53AD900DE272C /* EditRecordsViewController.swift */,
+				C131D0D61CE4F10000DD6F9C /* EditTeamTableViewController.swift */,
+				0418E8211CC5872100DF7223 /* Login.swift */,
 				C1D008881CBD604D00EE89E4 /* LoginViewController.swift */,
+				04C18DE81CC53A8800DE272C /* ManageTeamsViewController.swift */,
+				04C18DF21CC5824600DE272C /* RegisterViewController.swift */,
+				04C18DE61CC53A6400DE272C /* SettingsViewController.swift */,
+				04C18DEC1CC53AB900DE272C /* StartMeetingViewController.swift */,
+				C11D4B201CD27D56003593F7 /* Variables.swift */,
+				04C18DEE1CC53AC800DE272C /* ViewRecordsViewController.swift */,
 				C1277F4F1CB6C73D00F4B046 /* Assets.xcassets */,
 				C1277F511CB6C73D00F4B046 /* LaunchScreen.storyboard */,
-				C1277F541CB6C73D00F4B046 /* Info.plist */,
+				C1277F4C1CB6C73D00F4B046 /* Main.storyboard */,
 			);
 			path = AreYouHere;
 			sourceTree = "<group>";
@@ -194,14 +194,17 @@
 			path = AreYouHereUITests;
 			sourceTree = "<group>";
 		};
-		FE9E83F5A0D1F2F0B858C8F3 /* Frameworks */ = {
+		D0A0671A904B9B53E443C15E /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				9DB61FE9B0D3EC6AD5E146F0 /* Pods_AreYouHere.framework */,
-				F8857E596D14DEB9E105FF9C /* Pods_AreYouHereTests.framework */,
-				D4475634CB5EC62FDC6F8F7C /* Pods_AreYouHereUITests.framework */,
+				75B964130C511F51BAD97C5E /* Pods-AreYouHere.debug.xcconfig */,
+				E9C6D86082E3714C35C8929F /* Pods-AreYouHere.release.xcconfig */,
+				1EC7C6E5D0A81E1E344ED6AA /* Pods-AreYouHereTests.debug.xcconfig */,
+				9339C8C9CE9E299AE7454792 /* Pods-AreYouHereTests.release.xcconfig */,
+				55572348B4FF48C04D45571C /* Pods-AreYouHereUITests.debug.xcconfig */,
+				56C219381641F12195BF1C22 /* Pods-AreYouHereUITests.release.xcconfig */,
 			);
-			name = Frameworks;
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -211,12 +214,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C1277F6D1CB6C73D00F4B046 /* Build configuration list for PBXNativeTarget "AreYouHere" */;
 			buildPhases = (
-				00740F70A9E7BAD42DC82AE4 /* 📦 Check Pods Manifest.lock */,
+				EDE73C7D7F3D305106AAF537 /* 📦 Check Pods Manifest.lock */,
 				C1277F411CB6C73D00F4B046 /* Sources */,
 				C1277F421CB6C73D00F4B046 /* Frameworks */,
 				C1277F431CB6C73D00F4B046 /* Resources */,
-				D41DA84FC274ECE71D4873F2 /* 📦 Embed Pods Frameworks */,
-				C723251EA4EBCBBEBB438526 /* 📦 Copy Pods Resources */,
+				3F5F401D818ACA25031C20D9 /* 📦 Embed Pods Frameworks */,
+				C8C13473F0341D7B2BAA10A5 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -231,12 +234,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C1277F701CB6C73D00F4B046 /* Build configuration list for PBXNativeTarget "AreYouHereTests" */;
 			buildPhases = (
-				B938C77ED875C5980C47FCC9 /* 📦 Check Pods Manifest.lock */,
+				3BE7477D7C84A536CECF36C5 /* 📦 Check Pods Manifest.lock */,
 				C1277F551CB6C73D00F4B046 /* Sources */,
 				C1277F561CB6C73D00F4B046 /* Frameworks */,
 				C1277F571CB6C73D00F4B046 /* Resources */,
-				31AB342F65113C77DF74995E /* 📦 Embed Pods Frameworks */,
-				06C609270985854A417C17C5 /* 📦 Copy Pods Resources */,
+				416C43E38D6AC008D49C04B1 /* 📦 Embed Pods Frameworks */,
+				2F0BC3A2A5085FCB3E4FE673 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -252,11 +255,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C1277F731CB6C73D00F4B046 /* Build configuration list for PBXNativeTarget "AreYouHereUITests" */;
 			buildPhases = (
-				B3827B0976C1703745A702BB /* 📦 Check Pods Manifest.lock */,
+				42312ADDB106AE1C871FB8CD /* 📦 Check Pods Manifest.lock */,
 				C1277F601CB6C73D00F4B046 /* Sources */,
 				C1277F611CB6C73D00F4B046 /* Frameworks */,
 				C1277F621CB6C73D00F4B046 /* Resources */,
-				06C9E851138EAE9FC631B326 /* 📦 Copy Pods Resources */,
+				C6FBD37420A8DDCD972F57F8 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -342,22 +345,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		00740F70A9E7BAD42DC82AE4 /* 📦 Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "📦 Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		06C609270985854A417C17C5 /* 📦 Copy Pods Resources */ = {
+		2F0BC3A2A5085FCB3E4FE673 /* 📦 Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -372,22 +360,37 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AreYouHereTests/Pods-AreYouHereTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		06C9E851138EAE9FC631B326 /* 📦 Copy Pods Resources */ = {
+		3BE7477D7C84A536CECF36C5 /* 📦 Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "📦 Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AreYouHereUITests/Pods-AreYouHereUITests-resources.sh\"\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		31AB342F65113C77DF74995E /* 📦 Embed Pods Frameworks */ = {
+		3F5F401D818ACA25031C20D9 /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AreYouHere/Pods-AreYouHere-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		416C43E38D6AC008D49C04B1 /* 📦 Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -402,7 +405,7 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AreYouHereTests/Pods-AreYouHereTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		B3827B0976C1703745A702BB /* 📦 Check Pods Manifest.lock */ = {
+		42312ADDB106AE1C871FB8CD /* 📦 Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -417,22 +420,22 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		B938C77ED875C5980C47FCC9 /* 📦 Check Pods Manifest.lock */ = {
+		C6FBD37420A8DDCD972F57F8 /* 📦 Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "📦 Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AreYouHereUITests/Pods-AreYouHereUITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C723251EA4EBCBBEBB438526 /* 📦 Copy Pods Resources */ = {
+		C8C13473F0341D7B2BAA10A5 /* 📦 Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -447,19 +450,19 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AreYouHere/Pods-AreYouHere-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D41DA84FC274ECE71D4873F2 /* 📦 Embed Pods Frameworks */ = {
+		EDE73C7D7F3D305106AAF537 /* 📦 Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "📦 Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AreYouHere/Pods-AreYouHere-frameworks.sh\"\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -475,6 +478,7 @@
 				C11D4B211CD27D56003593F7 /* Variables.swift in Sources */,
 				C131D0D71CE4F10000DD6F9C /* EditTeamTableViewController.swift in Sources */,
 				C1D0088B1CBD64CD00EE89E4 /* DashboardViewController.swift in Sources */,
+				C171D9071CF8C4DE00B06391 /* AppState.swift in Sources */,
 				04C18DED1CC53AB900DE272C /* StartMeetingViewController.swift in Sources */,
 				C171B8A91CE0FAC000F68AB0 /* CreateTeamViewController.swift in Sources */,
 				04C18DF11CC53AD900DE272C /* EditRecordsViewController.swift in Sources */,
@@ -622,7 +626,7 @@
 		};
 		C1277F6E1CB6C73D00F4B046 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CCCF26E48DEE39D52C71BAA2 /* Pods-AreYouHere.debug.xcconfig */;
+			baseConfigurationReference = 75B964130C511F51BAD97C5E /* Pods-AreYouHere.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -638,7 +642,7 @@
 		};
 		C1277F6F1CB6C73D00F4B046 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 55AC904FFCC69FBB42D2A5D4 /* Pods-AreYouHere.release.xcconfig */;
+			baseConfigurationReference = E9C6D86082E3714C35C8929F /* Pods-AreYouHere.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -654,7 +658,7 @@
 		};
 		C1277F711CB6C73D00F4B046 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 486884936138121A64982D3B /* Pods-AreYouHereTests.debug.xcconfig */;
+			baseConfigurationReference = 1EC7C6E5D0A81E1E344ED6AA /* Pods-AreYouHereTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = AreYouHereTests/Info.plist;
@@ -667,7 +671,7 @@
 		};
 		C1277F721CB6C73D00F4B046 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 57301ABFEDA9CD2352D83B68 /* Pods-AreYouHereTests.release.xcconfig */;
+			baseConfigurationReference = 9339C8C9CE9E299AE7454792 /* Pods-AreYouHereTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = AreYouHereTests/Info.plist;
@@ -680,7 +684,7 @@
 		};
 		C1277F741CB6C73D00F4B046 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A0DC3F6CE103ADF930520154 /* Pods-AreYouHereUITests.debug.xcconfig */;
+			baseConfigurationReference = 55572348B4FF48C04D45571C /* Pods-AreYouHereUITests.debug.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = AreYouHereUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -693,7 +697,7 @@
 		};
 		C1277F751CB6C73D00F4B046 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F67C97AC9ABB8B404A44D71A /* Pods-AreYouHereUITests.release.xcconfig */;
+			baseConfigurationReference = 56C219381641F12195BF1C22 /* Pods-AreYouHereUITests.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = AreYouHereUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

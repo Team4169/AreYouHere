@@ -55,17 +55,10 @@ class ManageTeamsViewController: UIViewController, UIPickerViewDelegate, UIPicke
         }
     }
     
-    @IBAction func hitCreate(sender: AnyObject) {
-        
-    }
-    
-    @IBAction func hitEdit(sender: AnyObject) {
-        
-    }
-    
     func getWriteableTeams(program: String) {
+        //THIS NEEDS TO BE FIXED
         var swiftArray: [String] = [String]()
-        userRef!.child("writeableTeams").observeEventType(.Value, withBlock: { snapshot in
+        userRef!.child("writeableTeams").observeSingleEventOfType(.Value, withBlock: { snapshot in
             if snapshot.exists() {
                 if let writeableTeams = snapshot.value!.objectForKey(program) {
                     let teamsData: NSArray = writeableTeams as! NSArray
