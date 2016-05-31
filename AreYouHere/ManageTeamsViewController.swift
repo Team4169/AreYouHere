@@ -6,6 +6,7 @@
 //  Copyright © 2016 Jack Doherty. All rights reserved.
 //
 
+//FIX THIS
 import UIKit
 import Firebase
 import Foundation
@@ -15,7 +16,8 @@ class ManageTeamsViewController: UIViewController, UIPickerViewDelegate, UIPicke
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var editTeamsButton: UIButton!
     
-    var pickerSelection: String = ""
+    var teamNums: [String] = [String]()
+    var pickerSelection: Int = -1
     
     var pickerData: [String] = [String]()
 
@@ -33,6 +35,13 @@ class ManageTeamsViewController: UIViewController, UIPickerViewDelegate, UIPicke
         // Dispose of any resources that can be recreated.
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let DVC = segue.destinationViewController
+        if segue.identifier == "manageTeamsToEditTeams" {
+            DVC.teamNum = teamNum
+        }
+    }
+    
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -47,34 +56,39 @@ class ManageTeamsViewController: UIViewController, UIPickerViewDelegate, UIPicke
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if (pickerData[row] == "Select a team" || pickerData[row] == "No availible teams") && pickerData.count > 0 {
-            self.pickerSelection = ""
+            self.pickerSelection = -1
             editTeamsButton.enabled = false
         } else {
-            self.pickerSelection = pickerData[row]
+            self.pickerSelection = pickerData.indexOf(row)
             editTeamsButton.enabled = true
         }
     }
     
     func getWriteableTeams(program: String) {
         //THIS NEEDS TO BE FIXED
-        var swiftArray: [String] = [String]()
+        var displayArray: [String] = [String]()
         userRef!.child("writeableTeams").observeSingleEventOfType(.Value, withBlock: { snapshot in
-            if snapshot.exists() {
+            if snapshot.hasChild(program) {
                 if let writeableTeams = snapshot.value!.objectForKey(program) {
-                    let teamsData: NSArray = writeableTeams as! NSArray
-                    print(teamsData)
-                    for items in teamsData {
-                        swiftArray.append(String(items))
+                    let teamsData: [String : String] = writeableTeams as! [String : String]
+                    var teamNums: [String] = [String]()
+                    for (teamNum, _) in teamsData {
+                        teamNums.append(teamNum)
                     }
-                    print(swiftArray)
-                    swiftArray.sortInPlace()
-                    swiftArray.insert("Select a team", atIndex: 0)
-                    print(swiftArray)
+                    teamNums.sortInPlace()
+                    self.teamNums = teamNums
+                    for teams in teamNums {
+                        displayArray.append("\(teamsData[teams]!) – \(teams)")
+                    }
+                    displayArray.insert("Select a team", atIndex: 0)
+                    print(displayArray)
                 }
+            } else if displayArray.isEmpty {
+                displayArray.append("No availible teams")
             } else {
-                swiftArray.append("No availible teams")
+                displayArray.append("No availible teams")
             }
-            self.pickerData = swiftArray
+            self.pickerData = displayArray
             NSNotificationCenter.defaultCenter().postNotificationName("\(uniqueNotificationKey).ManageTeamsVC.getWriteableTeams", object: nil)
         })
     }
@@ -86,13 +100,13 @@ class ManageTeamsViewController: UIViewController, UIPickerViewDelegate, UIPicke
     @IBAction func segmentedIndexChanged(sender: AnyObject) {
         switch segmentedControl.selectedSegmentIndex {
             case 0:
-                getWriteableTeams("frc");
+                getWriteableTeams("FRC");
             case 1:
-                getWriteableTeams("ftc");
+                getWriteableTeams("FTC");
             case 2:
-                getWriteableTeams("fll");
+                getWriteableTeams("FLL");
             case 3:
-                getWriteableTeams("fllj");
+                getWriteableTeams("FLLJ");
             default:
                 break;
         }

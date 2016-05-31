@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="DOH-er-g5c">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="DOH-er-g5c">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
@@ -205,7 +205,6 @@
                                 <rect key="frame" x="257" y="217" width="87" height="30"/>
                                 <state key="normal" title="Create Team"/>
                                 <connections>
-                                    <action selector="hitCreate:" destination="PlI-hx-7Xc" eventType="touchUpInside" id="oHs-kk-AZY"/>
                                     <segue destination="Ep8-0u-8ns" kind="show" identifier="manageTeamsToCreateTeam" id="0My-fG-EdD"/>
                                 </connections>
                             </button>
@@ -213,7 +212,7 @@
                                 <rect key="frame" x="237" y="319" width="126" height="30"/>
                                 <state key="normal" title="Edit Existing Team"/>
                                 <connections>
-                                    <action selector="hitEdit:" destination="PlI-hx-7Xc" eventType="touchUpInside" id="gzx-nK-fik"/>
+                                    <segue destination="3q6-hg-wPA" kind="show" identifier="manageTeamsToEditTeams" id="ca2-eF-Igx"/>
                                 </connections>
                             </button>
                             <pickerView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Dfj-zZ-lwf">
@@ -553,5 +552,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="AVx-xa-X0h"/>
+        <segue reference="ca2-eF-Igx"/>
     </inferredMetricsTieBreakers>
 </document>

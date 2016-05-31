@@ -9,6 +9,7 @@
 import UIKit
 
 class EditTeamTableViewController: UITableViewController {
+    let teamNum: Int!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,7 +18,14 @@ class EditTeamTableViewController: UITableViewController {
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-         self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        let backButton = UIButton(type: UIButtonType.Custom)
+        backButton.addTarget(self, action: "popToRoot:", forControlEvents: UIControlEvents.TouchUpInside)
+        backButton.setTitle("Home", forState: UIControlState.Normal)
+        backButton.sizeToFit()
+        let backButtonItem = UIBarButtonItem(customView: backButton)
+        self.navigationItem.backBarButtonItem = backButtonItem
     }
 
     override func didReceiveMemoryWarning() {
