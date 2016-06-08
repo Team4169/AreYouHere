@@ -20,12 +20,17 @@ class ManageTeamsViewController: UIViewController, UIPickerViewDelegate, UIPicke
     var pickerSelection: Int = -1
     
     var pickerData: [String] = [String]()
+    var overlay: UIView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.picker.dataSource = self
         self.picker.delegate = self
+        
+        overlay = UIView(frame: view.frame)
+        overlay.backgroundColor = UIColor.whiteColor()
+        overlay.alpha = 0.8
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ManageTeamsViewController.loadPicker), name: "\(uniqueNotificationKey).ManageTeamsVC.getWriteableTeams", object: nil)
     }
@@ -35,10 +40,15 @@ class ManageTeamsViewController: UIViewController, UIPickerViewDelegate, UIPicke
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func hitEdit(sender: AnyObject) {
+        view.addSubview(overlay)
+        //load teamMembers data, then do NSNotify, then have another method that sends data to next VC and triggers segue
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let DVC = segue.destinationViewController
         if segue.identifier == "manageTeamsToEditTeams" {
-            DVC.teamNum = teamNum
+            let DVC = segue.destinationViewController as! EditTeamTableViewController
+            DVC.teamNum = self.pickerSelection
         }
     }
     
@@ -59,7 +69,7 @@ class ManageTeamsViewController: UIViewController, UIPickerViewDelegate, UIPicke
             self.pickerSelection = -1
             editTeamsButton.enabled = false
         } else {
-            self.pickerSelection = pickerData.indexOf(row)
+            self.pickerSelection = Int(teamNums[row - 1])!
             editTeamsButton.enabled = true
         }
     }
@@ -77,6 +87,7 @@ class ManageTeamsViewController: UIViewController, UIPickerViewDelegate, UIPicke
                     }
                     teamNums.sortInPlace()
                     self.teamNums = teamNums
+                    print(self.teamNums)
                     for teams in teamNums {
                         displayArray.append("\(teamsData[teams]!) – \(teams)")
                     }

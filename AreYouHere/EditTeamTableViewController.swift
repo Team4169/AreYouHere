@@ -9,7 +9,7 @@
 import UIKit
 
 class EditTeamTableViewController: UITableViewController {
-    let teamNum: Int!
+    var teamNum: Int = -1
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,12 +20,12 @@ class EditTeamTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
-        let backButton = UIButton(type: UIButtonType.Custom)
-        backButton.addTarget(self, action: "popToRoot:", forControlEvents: UIControlEvents.TouchUpInside)
-        backButton.setTitle("Home", forState: UIControlState.Normal)
-        backButton.sizeToFit()
-        let backButtonItem = UIBarButtonItem(customView: backButton)
-        self.navigationItem.backBarButtonItem = backButtonItem
+        let button = UIBarButtonItem(title: "Home", style: .Plain, target: self, action: #selector(EditTeamTableViewController.popToRoot(_:)))
+        self.navigationItem.leftBarButtonItem = button
+    }
+    
+    func popToRoot(sender:UIBarButtonItem){
+        self.navigationController!.popToRootViewControllerAnimated(true)
     }
 
     override func didReceiveMemoryWarning() {
@@ -36,24 +36,24 @@ class EditTeamTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 2
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return 5
     }
 
-    /*
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("LabelCell", forIndexPath: indexPath)
 
-        // Configure the cell...
+        cell.textLabel?.text = "Section \(indexPath.section) Row \(indexPath.row)"
 
         return cell
     }
-    */
+    
+    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Section \(section)"
+    }
 
     /*
     // Override to support conditional editing of the table view.

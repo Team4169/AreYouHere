@@ -212,7 +212,7 @@
                                 <rect key="frame" x="237" y="319" width="126" height="30"/>
                                 <state key="normal" title="Edit Existing Team"/>
                                 <connections>
-                                    <segue destination="3q6-hg-wPA" kind="show" identifier="manageTeamsToEditTeams" id="ca2-eF-Igx"/>
+                                    <action selector="hitEdit:" destination="PlI-hx-7Xc" eventType="touchUpInside" id="WZY-Ad-L35"/>
                                 </connections>
                             </button>
                             <pickerView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Dfj-zZ-lwf">
@@ -259,6 +259,7 @@
                         <outlet property="editTeamsButton" destination="B4h-Zi-czP" id="DEb-OB-plq"/>
                         <outlet property="picker" destination="Dfj-zZ-lwf" id="iMG-Dd-ZVq"/>
                         <outlet property="segmentedControl" destination="CFm-60-eOi" id="uCw-Ub-hcb"/>
+                        <segue destination="3q6-hg-wPA" kind="show" identifier="manageTeamsToEditTeams" id="i5q-zD-oOl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nmw-gG-f0Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -352,12 +353,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="sgG-Un-t6n">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="LabelCell" textLabel="DeH-NX-od9" style="IBUITableViewCellStyleDefault" id="sgG-Un-t6n">
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sgG-Un-t6n" id="Hhz-jg-9IL">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="DeH-NX-od9">
+                                            <rect key="frame" x="15" y="0.0" width="570" height="43"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -552,6 +562,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="AVx-xa-X0h"/>
-        <segue reference="ca2-eF-Igx"/>
+        <segue reference="i5q-zD-oOl"/>
     </inferredMetricsTieBreakers>
 </document>
