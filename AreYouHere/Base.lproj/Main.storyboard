@@ -212,7 +212,7 @@
                                 <rect key="frame" x="237" y="319" width="126" height="30"/>
                                 <state key="normal" title="Edit Existing Team"/>
                                 <connections>
-                                    <action selector="hitEdit:" destination="PlI-hx-7Xc" eventType="touchUpInside" id="WZY-Ad-L35"/>
+                                    <segue destination="3q6-hg-wPA" kind="show" identifier="manageTeamsToEditTeams" id="QBn-Gm-eQl"/>
                                 </connections>
                             </button>
                             <pickerView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Dfj-zZ-lwf">
@@ -259,7 +259,6 @@
                         <outlet property="editTeamsButton" destination="B4h-Zi-czP" id="DEb-OB-plq"/>
                         <outlet property="picker" destination="Dfj-zZ-lwf" id="iMG-Dd-ZVq"/>
                         <outlet property="segmentedControl" destination="CFm-60-eOi" id="uCw-Ub-hcb"/>
-                        <segue destination="3q6-hg-wPA" kind="show" identifier="manageTeamsToEditTeams" id="i5q-zD-oOl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nmw-gG-f0Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -376,10 +375,61 @@
                             <outlet property="delegate" destination="3q6-hg-wPA" id="KDg-ZO-lc2"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <segue destination="Bbm-d4-YYc" kind="show" identifier="editTeamToTeamMember" id="06t-Lc-aHx"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Ju-AB-pQ9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5525" y="-1632"/>
+        </scene>
+        <!--Team Member View Controller-->
+        <scene sceneID="qHi-Qt-lCZ">
+            <objects>
+                <viewController id="Bbm-d4-YYc" customClass="TeamMemberViewController" customModule="AreYouHere" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="STx-CT-1X3"/>
+                        <viewControllerLayoutGuide type="bottom" id="Gj5-29-mxe"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dsL-ue-09I">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="x33-ll-48e">
+                                <rect key="frame" x="45" y="87" width="240" height="128"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NAME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nCi-Rt-C3q">
+                                <rect key="frame" x="507" y="99" width="48" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EMAIL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mF6-KR-s2I">
+                                <rect key="frame" x="506" y="140" width="49" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="mF6-KR-s2I" firstAttribute="top" secondItem="nCi-Rt-C3q" secondAttribute="bottom" constant="20" id="D4S-Tf-B4E"/>
+                            <constraint firstItem="nCi-Rt-C3q" firstAttribute="top" secondItem="STx-CT-1X3" secondAttribute="bottom" constant="35" id="LMY-O1-aJz"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="nCi-Rt-C3q" secondAttribute="trailing" constant="25" id="MeT-5S-1Mq"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="mF6-KR-s2I" secondAttribute="trailing" constant="25" id="rss-oh-mTi"/>
+                            <constraint firstItem="x33-ll-48e" firstAttribute="top" secondItem="STx-CT-1X3" secondAttribute="bottom" constant="23" id="tUd-CO-n5o"/>
+                            <constraint firstItem="x33-ll-48e" firstAttribute="leading" secondItem="dsL-ue-09I" secondAttribute="leadingMargin" constant="25" id="u5b-bY-eh7"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="emailLabel" destination="mF6-KR-s2I" id="hI3-L4-6hW"/>
+                        <outlet property="imageView" destination="x33-ll-48e" id="Vwu-Yk-msQ"/>
+                        <outlet property="nameLabel" destination="nCi-Rt-C3q" id="ORD-FE-LBp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="j27-WC-XZD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6245" y="-1632"/>
         </scene>
         <!--Add Time View Controller-->
         <scene sceneID="9uo-I5-jPv">
@@ -562,6 +612,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="AVx-xa-X0h"/>
-        <segue reference="i5q-zD-oOl"/>
+        <segue reference="QBn-Gm-eQl"/>
     </inferredMetricsTieBreakers>
 </document>

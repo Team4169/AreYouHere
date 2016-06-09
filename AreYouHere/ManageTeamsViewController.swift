@@ -18,8 +18,9 @@ class ManageTeamsViewController: UIViewController, UIPickerViewDelegate, UIPicke
     
     var teamNums: [String] = [String]()
     var pickerSelection: Int = -1
-    
     var pickerData: [String] = [String]()
+    var program: String!
+    
     var overlay: UIView!
 
     override func viewDidLoad() {
@@ -40,15 +41,11 @@ class ManageTeamsViewController: UIViewController, UIPickerViewDelegate, UIPicke
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func hitEdit(sender: AnyObject) {
-        view.addSubview(overlay)
-        //load teamMembers data, then do NSNotify, then have another method that sends data to next VC and triggers segue
-    }
-    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "manageTeamsToEditTeams" {
             let DVC = segue.destinationViewController as! EditTeamTableViewController
             DVC.teamNum = self.pickerSelection
+            DVC.program = self.program
         }
     }
     
@@ -74,12 +71,11 @@ class ManageTeamsViewController: UIViewController, UIPickerViewDelegate, UIPicke
         }
     }
     
-    func getWriteableTeams(program: String) {
-        //THIS NEEDS TO BE FIXED
+    func getWriteableTeams() {
         var displayArray: [String] = [String]()
         userRef!.child("writeableTeams").observeSingleEventOfType(.Value, withBlock: { snapshot in
-            if snapshot.hasChild(program) {
-                if let writeableTeams = snapshot.value!.objectForKey(program) {
+            if snapshot.hasChild(self.program) {
+                if let writeableTeams = snapshot.value!.objectForKey(self.program) {
                     let teamsData: [String : String] = writeableTeams as! [String : String]
                     var teamNums: [String] = [String]()
                     for (teamNum, _) in teamsData {
@@ -111,16 +107,17 @@ class ManageTeamsViewController: UIViewController, UIPickerViewDelegate, UIPicke
     @IBAction func segmentedIndexChanged(sender: AnyObject) {
         switch segmentedControl.selectedSegmentIndex {
             case 0:
-                getWriteableTeams("FRC");
+                self.program = "FRC";
             case 1:
-                getWriteableTeams("FTC");
+                self.program = "FTC";
             case 2:
-                getWriteableTeams("FLL");
+                self.program = "FLL";
             case 3:
-                getWriteableTeams("FLLJ");
+                self.program = "FLLJ";
             default:
                 break;
         }
+        getWriteableTeams()
     }
     
 }
