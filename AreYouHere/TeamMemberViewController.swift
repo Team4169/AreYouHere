@@ -15,7 +15,9 @@ class TeamMemberViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        nameLabel.text = AppState.sharedInstance.name
+        emailLabel.text = AppState.sharedInstance.eid.base64Decoded()
         // Do any additional setup after loading the view.
     }
 

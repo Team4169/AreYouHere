@@ -39,18 +39,16 @@ class Login : NSObject {
                 NSNotificationCenter.defaultCenter().postNotificationName("\(uniqueNotificationKey).Login.loginUser.error", object: nil)
             } else {
                 let eid = email.base64Encoded()
+                
                 userRef = rootRef.child("users/\(eid)")
                 
-                userRef?.observeSingleEventOfType(.Value, withBlock: { snapshot in
-                    let name = snapshot.value!["name"] as? String
+                AppState.sharedInstance.name = user?.displayName
+                AppState.sharedInstance.eid = user?.email?.base64Encoded()
+                AppState.sharedInstance.photoURL = user?.photoURL
+                AppState.sharedInstance.signedIn = true
                     
-                    AppState.sharedInstance.name = name
-                    AppState.sharedInstance.eid = eid
-                    AppState.sharedInstance.signedIn = true
-                    
-                    print("Successfully logged in user with eid: \(eid)")
-                    NSNotificationCenter.defaultCenter().postNotificationName("\(uniqueNotificationKey).Login.loginUser.success", object: nil)
-                })
+                print("Successfully logged in user with eid: \(eid)")
+                NSNotificationCenter.defaultCenter().postNotificationName("\(uniqueNotificationKey).Login.loginUser.success", object: nil)
             }
         })
     }

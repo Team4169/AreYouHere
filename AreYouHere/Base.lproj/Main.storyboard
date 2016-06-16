@@ -352,7 +352,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="LabelCell" textLabel="DeH-NX-od9" style="IBUITableViewCellStyleDefault" id="sgG-Un-t6n">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="LabelCell" textLabel="DeH-NX-od9" detailTextLabel="yQR-Wy-hhF" style="IBUITableViewCellStyleValue1" id="sgG-Un-t6n">
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sgG-Un-t6n" id="Hhz-jg-9IL">
@@ -360,10 +360,17 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="DeH-NX-od9">
-                                            <rect key="frame" x="15" y="0.0" width="570" height="43"/>
+                                            <rect key="frame" x="15" y="12" width="32" height="20"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yQR-Wy-hhF">
+                                            <rect key="frame" x="543" y="12" width="42" height="20"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -376,7 +383,7 @@
                         </connections>
                     </tableView>
                     <connections>
-                        <segue destination="Bbm-d4-YYc" kind="show" identifier="editTeamToTeamMember" id="06t-Lc-aHx"/>
+                        <segue destination="Bbm-d4-YYc" kind="showDetail" identifier="editTeamToTeamMember" id="06t-Lc-aHx"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Ju-AB-pQ9" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -398,13 +405,18 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="x33-ll-48e">
                                 <rect key="frame" x="45" y="87" width="240" height="128"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NAME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nCi-Rt-C3q">
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="6Vd-dd-DUH">
                                 <rect key="frame" x="507" y="99" width="48" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EMAIL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mF6-KR-s2I">
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="NAME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nCi-Rt-C3q">
+                                        <rect key="frame" x="0.0" y="0.0" width="48" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="EMAIL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mF6-KR-s2I">
                                 <rect key="frame" x="506" y="140" width="49" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -413,14 +425,12 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="mF6-KR-s2I" firstAttribute="top" secondItem="nCi-Rt-C3q" secondAttribute="bottom" constant="20" id="D4S-Tf-B4E"/>
-                            <constraint firstItem="nCi-Rt-C3q" firstAttribute="top" secondItem="STx-CT-1X3" secondAttribute="bottom" constant="35" id="LMY-O1-aJz"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="nCi-Rt-C3q" secondAttribute="trailing" constant="25" id="MeT-5S-1Mq"/>
                             <constraint firstAttribute="trailingMargin" secondItem="mF6-KR-s2I" secondAttribute="trailing" constant="25" id="rss-oh-mTi"/>
                             <constraint firstItem="x33-ll-48e" firstAttribute="top" secondItem="STx-CT-1X3" secondAttribute="bottom" constant="23" id="tUd-CO-n5o"/>
                             <constraint firstItem="x33-ll-48e" firstAttribute="leading" secondItem="dsL-ue-09I" secondAttribute="leadingMargin" constant="25" id="u5b-bY-eh7"/>
                         </constraints>
                     </view>
+                    <splitViewDetailSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="emailLabel" destination="mF6-KR-s2I" id="hI3-L4-6hW"/>
                         <outlet property="imageView" destination="x33-ll-48e" id="Vwu-Yk-msQ"/>
