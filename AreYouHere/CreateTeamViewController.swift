@@ -78,7 +78,8 @@ class CreateTeamViewController: UIViewController {
         let teamsDirRef = rootRef.child("teams/\(pickerSelection!)/\(teamNum)")
         let teamData = [
             "nickname" : teamName,
-            "admins" : [AppState.sharedInstance.name! : AppState.sharedInstance.eid!]
+            "admins" : [AppState.sharedInstance.eid! : AppState.sharedInstance.name!],
+            "teamMembers" : [AppState.sharedInstance.eid! : AppState.sharedInstance.name!]
         ]
         
         programWriteRef?.updateChildValues([teamNum : teamName])

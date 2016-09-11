@@ -5,6 +5,7 @@
 //  Created by block7 on 5/12/16.
 //  Copyright © 2016 Jack Doherty. All rights reserved.
 //
+//remove teams from editableTeams in users profile when deleted or when their admin status is removed
 
 import UIKit
 import Firebase
@@ -23,6 +24,7 @@ class EditTeamTableViewController: UITableViewController {
     var detailMemberEID: String!
 
     override func viewDidLoad() {
+        print("Edit VC Load")
         super.viewDidLoad()
         teamRef = rootRef.child("teams/\(program)/\(teamNum)")
         
@@ -34,14 +36,21 @@ class EditTeamTableViewController: UITableViewController {
     
     override func viewWillAppear(animated: Bool) {
         teamRef.observeEventType(.Value, withBlock: { snapshot in
+            print(snapshot)
             let admins = snapshot.value!["admins"] as! [String:String]
             print(admins)
             self.teamAdmins = admins
             
             let teamMembers = snapshot.value!["teamMembers"] as! [String : String]
+            var teamMembersSwitched: [String : String] = [String : String]()
+            for (eid, name) in teamMembers {
+                teamMembersSwitched[name] = eid
+            }
+            print(teamMembersSwitched)
+            
             var namesArray: [String] = [String]()
             var eidArray: [String] = [String]()
-            for (name, _) in teamMembers {
+            for (name, _) in teamMembersSwitched {
                 namesArray.append(name)
             }
             namesArray.sortInPlace()
