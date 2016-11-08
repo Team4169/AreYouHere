@@ -16,9 +16,9 @@ class EditTeamTableViewController: UITableViewController {
     var program: String!
     var teamRef: FIRDatabaseReference!
     
-    var teamMemberNames: [String] = [String]()
-    var teamMemberEIDs: [String] = [String]()
-    var teamAdmins: [String:String] = [String:String]()
+    var teamMemberNames: Array<String> = []
+    var teamMemberEIDs: Array<String> = []
+    var teamAdmins: Dictionary<String, String> = [:]
     
     var detailMemberName: String!
     var detailMemberEID: String!
@@ -28,20 +28,20 @@ class EditTeamTableViewController: UITableViewController {
         super.viewDidLoad()
         teamRef = rootRef.child("teams/\(program)/\(teamNum)")
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: #selector(EditTeamTableViewController.hitAdd))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(EditTeamTableViewController.hitAdd))
         
-        let button = UIBarButtonItem(title: "Home", style: .Plain, target: self, action: #selector(EditTeamTableViewController.popToRoot(_:)))
+        let button = UIBarButtonItem(title: "Home", style: .plain, target: self, action: #selector(EditTeamTableViewController.popToRoot(_:)))
         self.navigationItem.leftBarButtonItem = button
     }
     
-    override func viewWillAppear(animated: Bool) {
-        teamRef.observeEventType(.Value, withBlock: { snapshot in
+    override func viewWillAppear(_ animated: Bool) {
+        teamRef.observe(.value, with: { (snapshot: FIRDataSnapshot) in
             print(snapshot)
-            let admins = snapshot.value!["admins"] as! [String:String]
+            let admins = (snapshot.value! as! NSDictionary)["admins"] as! [String:String]
             print(admins)
             self.teamAdmins = admins
             
-            let teamMembers = snapshot.value!["teamMembers"] as! [String : String]
+            let teamMembers = (snapshot.value! as! NSDictionary)["teamMembers"] as! [String : String]
             var teamMembersSwitched: [String : String] = [String : String]()
             for (eid, name) in teamMembers {
                 teamMembersSwitched[name] = eid
@@ -53,7 +53,7 @@ class EditTeamTableViewController: UITableViewController {
             for (name, _) in teamMembersSwitched {
                 namesArray.append(name)
             }
-            namesArray.sortInPlace()
+            namesArray.sort()
             for names in namesArray {
                 eidArray.append(teamMembers[names]!)
             }
@@ -64,12 +64,12 @@ class EditTeamTableViewController: UITableViewController {
         })
     }
     
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         rootRef.child("teams/\(program)/\(teamNum)").removeAllObservers()
     }
     
-    func popToRoot(sender:UIBarButtonItem){
-        self.navigationController!.popToRootViewControllerAnimated(true)
+    func popToRoot(_ sender:UIBarButtonItem){
+        self.navigationController!.popToRootViewController(animated: true)
     }
 
     override func didReceiveMemoryWarning() {
@@ -83,18 +83,18 @@ class EditTeamTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return teamMemberNames.count
     }
 
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("LabelCell", forIndexPath: indexPath)
-        cell.textLabel?.text = teamMemberNames[indexPath.row]
-        cell.detailTextLabel?.text = String(teamMemberEIDs[indexPath.row]).base64Decoded()
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "LabelCell", for: indexPath)
+        cell.textLabel?.text = teamMemberNames[(indexPath as NSIndexPath).row]
+        cell.detailTextLabel?.text = String(teamMemberEIDs[(indexPath as NSIndexPath).row]).base64Decoded()
         return cell
     }
 
@@ -108,19 +108,19 @@ class EditTeamTableViewController: UITableViewController {
 
     
     // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            if let _ = teamAdmins[teamMemberNames[indexPath.row]] {
-                let alert = UIAlertController(title: "Delete Error", message: "You cannot delete a team admin. Please revoke team member's admin status before deletion.", preferredStyle: UIAlertControllerStyle.Alert)
-                alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
-                self.presentViewController(alert, animated: true, completion: nil)
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            if let _ = teamAdmins[teamMemberNames[(indexPath as NSIndexPath).row]] {
+                let alert = UIAlertController(title: "Delete Error", message: "You cannot delete a team admin. Please revoke team member's admin status before deletion.", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
             } else {
-                print(teamMemberNames[indexPath.row])
+                print(teamMemberNames[(indexPath as NSIndexPath).row])
                 teamRef.child("teamMembers/\(teamMemberNames[indexPath.row])").removeValue()
-                teamMemberNames.removeAtIndex(indexPath.row)
-                tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+                teamMemberNames.remove(at: (indexPath as NSIndexPath).row)
+                tableView.deleteRows(at: [indexPath], with: .automatic)
             }
-        } else if editingStyle == .Insert {
+        } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
@@ -143,9 +143,9 @@ class EditTeamTableViewController: UITableViewController {
 
     // MARK: - Navigation
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        rootRef.child("users/\(self.teamMemberEIDs[indexPath.row]))").observeSingleEventOfType(.Value, withBlock: { snapshot in
-            self.performSegueWithIdentifier("editTeamToTeamMember", sender: nil)
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        rootRef.child("users/\(self.teamMemberEIDs[indexPath.row]))").observeSingleEvent(of: .value, with: { snapshot in
+            self.performSegue(withIdentifier: "editTeamToTeamMember", sender: nil)
         })
 //        self.teamMemberName.text = teamMemberNames[indexPath.row]
 //        self.teamMemberEmail.text = String(teamMemberEIDs[indexPath.row]).base64Decoded
@@ -155,9 +155,9 @@ class EditTeamTableViewController: UITableViewController {
     
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "editTeamToTeamMember" {
-            let DVC = segue.destinationViewController as! TeamMemberViewController
+            let DVC = segue.destination as! TeamMemberViewController
             //send over name and email decrypted and eventually a pro pic
 //            let data = NSData(contentsOfURL: AppState.sharedInstance.photoURL)
 //            DVC.imageView.image = UIImage(data: data!)

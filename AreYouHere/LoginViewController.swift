@@ -20,11 +20,11 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         
         overlay = UIView(frame: view.frame)
-        overlay.backgroundColor = UIColor.whiteColor()
+        overlay.backgroundColor = UIColor.white
         overlay.alpha = 0.8
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(LoginViewController.gotLoginError), name: "\(uniqueNotificationKey).Login.loginUser.error", object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(LoginViewController.gotLoginSuccess), name: "\(uniqueNotificationKey).Login.loginUser.success", object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(LoginViewController.gotLoginError), name: NSNotification.Name(rawValue: "\(uniqueNotificationKey).Login.loginUser.error"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(LoginViewController.gotLoginSuccess), name: NSNotification.Name(rawValue: "\(uniqueNotificationKey).Login.loginUser.success"), object: nil)
     }
 
     override func didReceiveMemoryWarning() {
@@ -32,28 +32,28 @@ class LoginViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func hitLogin(sender: AnyObject) {
+    @IBAction func hitLogin(_ sender: AnyObject) {
         view.addSubview(overlay)
         self.login.loginUser(emailField.text!, password: passwordField.text!)
     }
     
     func gotLoginError() {
         overlay.removeFromSuperview()
-        let alert = UIAlertController(title: "Login Error", message: "Your login failed.", preferredStyle: UIAlertControllerStyle.Alert)
-        alert.addAction(UIAlertAction(title: "Try Again", style: UIAlertActionStyle.Default, handler: nil))
-        self.presentViewController(alert, animated: true, completion: nil)
+        let alert = UIAlertController(title: "Login Error", message: "Your login failed.", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "Try Again", style: UIAlertActionStyle.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
     
     func gotLoginSuccess() {
-        performSegueWithIdentifier("loginToDashboard", sender: nil)
+        performSegue(withIdentifier: "loginToDashboard", sender: nil)
     }
 
-    @IBAction func cheatLogin(sender: AnyObject) {
+    @IBAction func cheatLogin(_ sender: AnyObject) {
         view.addSubview(overlay)
         self.login.loginUser("jackjyro@gmail.com", password: "test4169")
     }
     
-    @IBAction func cheatSignup(sender: AnyObject) {
+    @IBAction func cheatSignup(_ sender: AnyObject) {
         self.login.createUser("jackjyro@gmail.com", password: "test4169", name: "Jack Doherty")
     }
 }

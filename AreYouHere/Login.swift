@@ -8,14 +8,15 @@
 
 import Foundation
 import Firebase
+import FirebaseAuth
 
 class Login : NSObject {
     
-    func createUser(email: String, password: String, name: String) {
-        FIRAuth.auth()?.createUserWithEmail(email, password: password, completion: { (user, error) in
+    func createUser(_ email: String, password: String, name: String) {
+        FIRAuth.auth()?.createUser(withEmail: email, password: password, completion: { (user, error) in
             if error != nil {
                 print(error)
-                NSNotificationCenter.defaultCenter().postNotificationName("\(uniqueNotificationKey).Login.createUser.error", object: nil)
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "\(uniqueNotificationKey).Login.createUser.error"), object: nil)
             } else {
                 let eid = email.base64Encoded()
                 print("Successfully created user account with eid: \(eid)")
@@ -27,16 +28,16 @@ class Login : NSObject {
                 AppState.sharedInstance.name = name
                 AppState.sharedInstance.eid = eid
                 AppState.sharedInstance.signedIn = true
-                NSNotificationCenter.defaultCenter().postNotificationName("\(uniqueNotificationKey).Login.createUser.success", object: nil)
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "\(uniqueNotificationKey).Login.createUser.success"), object: nil)
             }
         })
     }
     
-    func loginUser(email: String, password: String) {
-        FIRAuth.auth()?.signInWithEmail(email, password: password, completion: { (user, error) in
+    func loginUser(_ email: String, password: String) {
+        FIRAuth.auth()?.signIn(withEmail: email, password: password, completion: { (user, error) in
             if error != nil {
                 print(error)
-                NSNotificationCenter.defaultCenter().postNotificationName("\(uniqueNotificationKey).Login.loginUser.error", object: nil)
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "\(uniqueNotificationKey).Login.loginUser.error"), object: nil)
             } else {
                 let eid = email.base64Encoded()
                 
@@ -48,7 +49,7 @@ class Login : NSObject {
                 AppState.sharedInstance.signedIn = true
                     
                 print("Successfully logged in user with eid: \(eid)")
-                NSNotificationCenter.defaultCenter().postNotificationName("\(uniqueNotificationKey).Login.loginUser.success", object: nil)
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "\(uniqueNotificationKey).Login.loginUser.success"), object: nil)
             }
         })
     }

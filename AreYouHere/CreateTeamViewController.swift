@@ -11,6 +11,7 @@
 
 import UIKit
 
+import Firebase
 import FirebaseAuth
 import FirebaseDatabase
 
@@ -27,11 +28,11 @@ class CreateTeamViewController: UIViewController {
         super.viewDidLoad()
         
         overlay = UIView(frame: view.frame)
-        overlay.backgroundColor = UIColor.whiteColor()
+        overlay.backgroundColor = UIColor.white
         overlay.alpha = 0.8
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(CreateTeamViewController.noGoForCreate), name: "\(uniqueNotificationKey).CreateTeamVC.checkForExistingTeam.taken", object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(CreateTeamViewController.goForCreate), name: "\(uniqueNotificationKey).CreateTeamVC.checkForExistingTeam.free", object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(CreateTeamViewController.noGoForCreate), name: NSNotification.Name(rawValue: "\(uniqueNotificationKey).CreateTeamVC.checkForExistingTeam.taken"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(CreateTeamViewController.goForCreate), name: NSNotification.Name(rawValue: "\(uniqueNotificationKey).CreateTeamVC.checkForExistingTeam.free"), object: nil)
     }
 
     override func didReceiveMemoryWarning() {
@@ -39,56 +40,56 @@ class CreateTeamViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func hitCreate(sender: AnyObject) {
+    @IBAction func hitCreate(_ sender: AnyObject) {
         view.addSubview(overlay)
         if (self.pickerSelection != nil) && (self.teamNameField.text! != "") && (self.teamNameField.text! != "") {
             checkForExistingTeam(self.teamNumField.text!)
         } else {
             overlay.removeFromSuperview()
-            let alert = UIAlertController(title: "Team Create Error", message: "All fields are required.", preferredStyle: UIAlertControllerStyle.Alert)
-            alert.addAction(UIAlertAction(title: "Try Again", style: UIAlertActionStyle.Default, handler: nil))
-            self.presentViewController(alert, animated: true, completion: nil)
+            let alert = UIAlertController(title: "Team Create Error", message: "All fields are required.", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Try Again", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
         }
     }
     
-    func checkForExistingTeam(teamNum: String) {
+    func checkForExistingTeam(_ teamNum: String) {
         let teamsDirRef = rootRef.child(self.pickerSelection!)
-        teamsDirRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
-            if let _ = snapshot.value![teamNum] as? String {
-                NSNotificationCenter.defaultCenter().postNotificationName("\(uniqueNotificationKey).CreateTeamVC.checkForExistingTeam.taken", object: nil)
+        teamsDirRef.observeSingleEvent(of: .value, with: { (snapshot: FIRDataSnapshot) in
+            if let _ = (snapshot.value! as! NSDictionary)[teamNum] as? String {
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "\(uniqueNotificationKey).CreateTeamVC.checkForExistingTeam.taken"), object: nil)
             } else {
-                NSNotificationCenter.defaultCenter().postNotificationName("\(uniqueNotificationKey).CreateTeamVC.checkForExistingTeam.free", object: nil)
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "\(uniqueNotificationKey).CreateTeamVC.checkForExistingTeam.free"), object: nil)
             }
         })
     }
     
     func noGoForCreate() {
         overlay.removeFromSuperview()
-        let alert = UIAlertController(title: "Team Create Error", message: "Team is already administred.", preferredStyle: UIAlertControllerStyle.Alert)
-        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
-        self.presentViewController(alert, animated: true, completion: nil)
+        let alert = UIAlertController(title: "Team Create Error", message: "Team is already administred.", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
     
     func goForCreate() {
         createTeam(self.pickerSelection!, teamName: self.teamNameField.text!, teamNum: self.teamNumField.text!)
     }
     
-    func createTeam(program: String, teamName: String, teamNum: String) {
+    func createTeam(_ program: String, teamName: String, teamNum: String) {
         let programWriteRef = userRef?.child("writeableTeams/\(pickerSelection!)")
         let teamsDirRef = rootRef.child("teams/\(pickerSelection!)/\(teamNum)")
         let teamData = [
             "nickname" : teamName,
             "admins" : [AppState.sharedInstance.eid! : AppState.sharedInstance.name!],
             "teamMembers" : [AppState.sharedInstance.eid! : AppState.sharedInstance.name!]
-        ]
+        ] as [String : Any]
         
         programWriteRef?.updateChildValues([teamNum : teamName])
-        teamsDirRef.updateChildValues(teamData as [NSObject : AnyObject])
+        teamsDirRef.updateChildValues(teamData as [AnyHashable: Any])
         
-        performSegueWithIdentifier("createTeamToEditTeam", sender: nil)
+        performSegue(withIdentifier: "createTeamToEditTeam", sender: nil)
     }
 
-    @IBAction func segmentedIndexChanged(sender: AnyObject) {
+    @IBAction func segmentedIndexChanged(_ sender: AnyObject) {
         switch segmentedControl.selectedSegmentIndex {
         case 0:
             self.pickerSelection = "FRC";
