@@ -13,8 +13,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     
-    let login = Login()
-    var overlay: UIView!
+    var overlay: UIView! //Made to make things PURDY
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +33,7 @@ class LoginViewController: UIViewController {
     
     @IBAction func hitLogin(_ sender: AnyObject) {
         view.addSubview(overlay)
-        self.login.loginUser(emailField.text!, password: passwordField.text!)
+        Login.loginUser(emailField.text!, password: passwordField.text!)
     }
     
     func gotLoginError() {
@@ -48,12 +47,13 @@ class LoginViewController: UIViewController {
         performSegue(withIdentifier: "loginToDashboard", sender: nil)
     }
 
+    //Remove this once ready for production
     @IBAction func cheatLogin(_ sender: AnyObject) {
         view.addSubview(overlay)
-        self.login.loginUser("jackjyro@gmail.com", password: "test4169")
+        Login.loginUser("jackjyro@gmail.com", password: "test4169")
     }
     
     @IBAction func cheatSignup(_ sender: AnyObject) {
-        self.login.createUser("jackjyro@gmail.com", password: "test4169", name: "Jack Doherty")
+        Login.createUser("jackjyro@gmail.com", password: "test4169", name: "Jack Doherty")
     }
 }

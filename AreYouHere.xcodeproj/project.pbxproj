@@ -16,9 +16,7 @@
 		04C18DF11CC53AD900DE272C /* EditRecordsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C18DF01CC53AD900DE272C /* EditRecordsViewController.swift */; };
 		04C18DF31CC5824600DE272C /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C18DF21CC5824600DE272C /* RegisterViewController.swift */; };
 		04F2D7351CED051700446586 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04F2D7341CED051700446586 /* GoogleService-Info.plist */; };
-		79B34E563DD8BA6BCAF18E2B /* Pods_AreYouHere.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B23AA60C552CBF5E74EFC98 /* Pods_AreYouHere.framework */; };
-		7B5AB2E512961D91973FFBAF /* Pods_AreYouHereUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39537B1EF72CBE4CEDAED9C9 /* Pods_AreYouHereUITests.framework */; };
-		7C21AC5D674436010A51011C /* Pods_AreYouHereTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A8BF33D2EC252D496AD261E /* Pods_AreYouHereTests.framework */; };
+		3E7894894940CBB461A7BF3E /* libPods-AreYouHere.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 251EED7376D44D4DB388CDA4 /* libPods-AreYouHere.a */; };
 		C11D4B211CD27D56003593F7 /* Variables.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11D4B201CD27D56003593F7 /* Variables.swift */; };
 		C1277F491CB6C73D00F4B046 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1277F481CB6C73D00F4B046 /* AppDelegate.swift */; };
 		C1277F4E1CB6C73D00F4B046 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1277F4C1CB6C73D00F4B046 /* Main.storyboard */; };
@@ -61,14 +59,10 @@
 		04C18DF01CC53AD900DE272C /* EditRecordsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditRecordsViewController.swift; sourceTree = "<group>"; };
 		04C18DF21CC5824600DE272C /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		04F2D7341CED051700446586 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		1B23AA60C552CBF5E74EFC98 /* Pods_AreYouHere.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AreYouHere.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		1EC7C6E5D0A81E1E344ED6AA /* Pods-AreYouHereTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AreYouHereTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AreYouHereTests/Pods-AreYouHereTests.debug.xcconfig"; sourceTree = "<group>"; };
+		251EED7376D44D4DB388CDA4 /* libPods-AreYouHere.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AreYouHere.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		39537B1EF72CBE4CEDAED9C9 /* Pods_AreYouHereUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AreYouHereUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		55572348B4FF48C04D45571C /* Pods-AreYouHereUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AreYouHereUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AreYouHereUITests/Pods-AreYouHereUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		56C219381641F12195BF1C22 /* Pods-AreYouHereUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AreYouHereUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AreYouHereUITests/Pods-AreYouHereUITests.release.xcconfig"; sourceTree = "<group>"; };
 		6A8BF33D2EC252D496AD261E /* Pods_AreYouHereTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AreYouHereTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		75B964130C511F51BAD97C5E /* Pods-AreYouHere.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AreYouHere.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AreYouHere/Pods-AreYouHere.debug.xcconfig"; sourceTree = "<group>"; };
-		9339C8C9CE9E299AE7454792 /* Pods-AreYouHereTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AreYouHereTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AreYouHereTests/Pods-AreYouHereTests.release.xcconfig"; sourceTree = "<group>"; };
 		C11D4B201CD27D56003593F7 /* Variables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Variables.swift; sourceTree = "<group>"; };
 		C1277F451CB6C73D00F4B046 /* AreYouHere.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AreYouHere.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1277F481CB6C73D00F4B046 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -96,7 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				79B34E563DD8BA6BCAF18E2B /* Pods_AreYouHere.framework in Frameworks */,
+				3E7894894940CBB461A7BF3E /* libPods-AreYouHere.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -104,7 +98,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7C21AC5D674436010A51011C /* Pods_AreYouHereTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,7 +105,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7B5AB2E512961D91973FFBAF /* Pods_AreYouHereUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -122,9 +114,9 @@
 		AE9695EB15FC6EE3C0F475A2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				1B23AA60C552CBF5E74EFC98 /* Pods_AreYouHere.framework */,
 				6A8BF33D2EC252D496AD261E /* Pods_AreYouHereTests.framework */,
 				39537B1EF72CBE4CEDAED9C9 /* Pods_AreYouHereUITests.framework */,
+				251EED7376D44D4DB388CDA4 /* libPods-AreYouHere.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -202,10 +194,6 @@
 			children = (
 				75B964130C511F51BAD97C5E /* Pods-AreYouHere.debug.xcconfig */,
 				E9C6D86082E3714C35C8929F /* Pods-AreYouHere.release.xcconfig */,
-				1EC7C6E5D0A81E1E344ED6AA /* Pods-AreYouHereTests.debug.xcconfig */,
-				9339C8C9CE9E299AE7454792 /* Pods-AreYouHereTests.release.xcconfig */,
-				55572348B4FF48C04D45571C /* Pods-AreYouHereUITests.debug.xcconfig */,
-				56C219381641F12195BF1C22 /* Pods-AreYouHereUITests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -217,12 +205,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C1277F6D1CB6C73D00F4B046 /* Build configuration list for PBXNativeTarget "AreYouHere" */;
 			buildPhases = (
-				EDE73C7D7F3D305106AAF537 /* 📦 Check Pods Manifest.lock */,
+				EDE73C7D7F3D305106AAF537 /* [CP] Check Pods Manifest.lock */,
 				C1277F411CB6C73D00F4B046 /* Sources */,
 				C1277F421CB6C73D00F4B046 /* Frameworks */,
 				C1277F431CB6C73D00F4B046 /* Resources */,
-				3F5F401D818ACA25031C20D9 /* 📦 Embed Pods Frameworks */,
-				C8C13473F0341D7B2BAA10A5 /* 📦 Copy Pods Resources */,
+				3F5F401D818ACA25031C20D9 /* [CP] Embed Pods Frameworks */,
+				C8C13473F0341D7B2BAA10A5 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -237,12 +225,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C1277F701CB6C73D00F4B046 /* Build configuration list for PBXNativeTarget "AreYouHereTests" */;
 			buildPhases = (
-				3BE7477D7C84A536CECF36C5 /* 📦 Check Pods Manifest.lock */,
 				C1277F551CB6C73D00F4B046 /* Sources */,
 				C1277F561CB6C73D00F4B046 /* Frameworks */,
 				C1277F571CB6C73D00F4B046 /* Resources */,
-				416C43E38D6AC008D49C04B1 /* 📦 Embed Pods Frameworks */,
-				2F0BC3A2A5085FCB3E4FE673 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -258,11 +243,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C1277F731CB6C73D00F4B046 /* Build configuration list for PBXNativeTarget "AreYouHereUITests" */;
 			buildPhases = (
-				42312ADDB106AE1C871FB8CD /* 📦 Check Pods Manifest.lock */,
 				C1277F601CB6C73D00F4B046 /* Sources */,
 				C1277F611CB6C73D00F4B046 /* Frameworks */,
 				C1277F621CB6C73D00F4B046 /* Resources */,
-				C6FBD37420A8DDCD972F57F8 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -286,15 +269,18 @@
 					C1277F441CB6C73D00F4B046 = {
 						CreatedOnToolsVersion = 7.0;
 						DevelopmentTeam = F4C4286R8Q;
+						LastSwiftMigration = 0800;
 					};
 					C1277F581CB6C73D00F4B046 = {
 						CreatedOnToolsVersion = 7.0;
 						DevelopmentTeam = F4C4286R8Q;
+						LastSwiftMigration = 0800;
 						TestTargetID = C1277F441CB6C73D00F4B046;
 					};
 					C1277F631CB6C73D00F4B046 = {
 						CreatedOnToolsVersion = 7.0;
 						DevelopmentTeam = F4C4286R8Q;
+						LastSwiftMigration = 0800;
 						TestTargetID = C1277F441CB6C73D00F4B046;
 					};
 				};
@@ -348,44 +334,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		2F0BC3A2A5085FCB3E4FE673 /* 📦 Copy Pods Resources */ = {
+		3F5F401D818ACA25031C20D9 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AreYouHereTests/Pods-AreYouHereTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		3BE7477D7C84A536CECF36C5 /* 📦 Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "📦 Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		3F5F401D818ACA25031C20D9 /* 📦 Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -393,59 +349,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AreYouHere/Pods-AreYouHere-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		416C43E38D6AC008D49C04B1 /* 📦 Embed Pods Frameworks */ = {
+		C8C13473F0341D7B2BAA10A5 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AreYouHereTests/Pods-AreYouHereTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		42312ADDB106AE1C871FB8CD /* 📦 Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "📦 Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		C6FBD37420A8DDCD972F57F8 /* 📦 Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "📦 Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AreYouHereUITests/Pods-AreYouHereUITests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C8C13473F0341D7B2BAA10A5 /* 📦 Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -453,14 +364,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AreYouHere/Pods-AreYouHere-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		EDE73C7D7F3D305106AAF537 /* 📦 Check Pods Manifest.lock */ = {
+		EDE73C7D7F3D305106AAF537 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -640,6 +551,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.thatnerdjack.AreYouHere;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -656,44 +568,45 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.thatnerdjack.AreYouHere;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
 		C1277F711CB6C73D00F4B046 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1EC7C6E5D0A81E1E344ED6AA /* Pods-AreYouHereTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = AreYouHereTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.thatnerdjack.AreYouHereTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AreYouHere.app/AreYouHere";
 			};
 			name = Debug;
 		};
 		C1277F721CB6C73D00F4B046 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9339C8C9CE9E299AE7454792 /* Pods-AreYouHereTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = AreYouHereTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.thatnerdjack.AreYouHereTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AreYouHere.app/AreYouHere";
 			};
 			name = Release;
 		};
 		C1277F741CB6C73D00F4B046 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 55572348B4FF48C04D45571C /* Pods-AreYouHereUITests.debug.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = AreYouHereUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.thatnerdjack.AreYouHereUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = AreYouHere;
 				USES_XCTRUNNER = YES;
 			};
@@ -701,12 +614,12 @@
 		};
 		C1277F751CB6C73D00F4B046 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 56C219381641F12195BF1C22 /* Pods-AreYouHereUITests.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = AreYouHereUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.thatnerdjack.AreYouHereUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = AreYouHere;
 				USES_XCTRUNNER = YES;
 			};

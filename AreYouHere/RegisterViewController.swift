@@ -14,7 +14,6 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var confirmPasswordField: UITextField!
     
-    let login = Login()
     var overlay: UIView?
 
     override func viewDidLoad() {
@@ -49,7 +48,7 @@ class RegisterViewController: UIViewController {
     }
     
     func gotCreateSuccess() {
-        login.loginUser(emailField.text!, password: passwordField.text!)
+        Login.loginUser(emailField.text!, password: passwordField.text!)
     }
     
     func gotLoginError() {
@@ -75,7 +74,7 @@ class RegisterViewController: UIViewController {
     @IBAction func hitGo(_ sender: AnyObject) {
         view.addSubview(overlay!)
         if passwordField.text! == confirmPasswordField.text! {
-            login.createUser(emailField.text!, password: passwordField.text!, name: nameField.text!)
+            Login.createUser(emailField.text!, password: passwordField.text!, name: nameField.text!)
         } else {
             overlay?.removeFromSuperview()
             let alert = UIAlertController(title: "Register Error", message: "Passwords do not match.", preferredStyle: UIAlertControllerStyle.alert)

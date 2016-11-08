@@ -6,7 +6,6 @@
 //  Copyright © 2016 Jack Doherty. All rights reserved.
 //
 
-//FIX THIS
 import UIKit
 import Firebase
 import FirebaseDatabase

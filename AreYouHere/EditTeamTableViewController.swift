@@ -12,9 +12,11 @@ import Firebase
 import FirebaseDatabase
 
 class EditTeamTableViewController: UITableViewController {
+    
     var teamNum: Int!
     var program: String!
     var teamRef: FIRDatabaseReference!
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate //Needed to reduce the number of crashes. Must find better ways of solving this situation later. Contact Firebase again?
     
     var teamMemberNames: Array<String> = []
     var teamMemberEIDs: Array<String> = []
@@ -26,7 +28,7 @@ class EditTeamTableViewController: UITableViewController {
     override func viewDidLoad() {
         print("Edit VC Load")
         super.viewDidLoad()
-        teamRef = rootRef.child("teams/\(program)/\(teamNum)")
+        teamRef = appDelegate.databaseRef.child("teams/\(program)/\(teamNum)")
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(EditTeamTableViewController.hitAdd))
         

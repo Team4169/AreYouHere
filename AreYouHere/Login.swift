@@ -10,9 +10,9 @@ import Foundation
 import Firebase
 import FirebaseAuth
 
-class Login : NSObject {
+class Login {
     
-    func createUser(_ email: String, password: String, name: String) {
+    class func createUser(_ email: String, password: String, name: String) {
         FIRAuth.auth()?.createUser(withEmail: email, password: password, completion: { (user, error) in
             if error != nil {
                 print(error)
@@ -33,7 +33,7 @@ class Login : NSObject {
         })
     }
     
-    func loginUser(_ email: String, password: String) {
+    class func loginUser(_ email: String, password: String) {
         FIRAuth.auth()?.signIn(withEmail: email, password: password, completion: { (user, error) in
             if error != nil {
                 print(error)
