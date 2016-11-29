@@ -85,7 +85,6 @@ class CreateTeamViewController: UIViewController {
         
         programWriteRef?.updateChildValues([teamNum : teamName])
         teamsDirRef.updateChildValues(teamData as [AnyHashable: Any])
-        
         performSegue(withIdentifier: "createTeamToEditTeam", sender: nil)
     }
 

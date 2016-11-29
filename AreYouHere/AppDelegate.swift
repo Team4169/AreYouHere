@@ -19,6 +19,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         FIRApp.configure()
+        
+        let defaults = UserDefaults.standard
+
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        var initialViewController: UIViewController
+        
+        print(defaults.value(forKey: "Email"))
+        if let email = defaults.value(forKey: "Email") as! String? {
+            let password = defaults.value(forKey: "Password") as! String!
+            Login.loginUser(email, password: password!)
+            initialViewController = storyboard.instantiateViewController(withIdentifier: "Home")
+        }
+        else {
+            initialViewController = storyboard.instantiateViewController(withIdentifier: "Login")
+        }
+        
+        self.window?.rootViewController = initialViewController
+        self.window?.makeKeyAndVisible()
         databaseRef = FIRDatabase.database().reference()
         return true
     }

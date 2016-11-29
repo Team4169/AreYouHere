@@ -8,8 +8,9 @@
 
 import UIKit
 
-class AppState: NSObject {
-    static let sharedInstance = AppState()
+struct AppState {
+    
+    static var sharedInstance = AppState()
     
     var signedIn = false
     var name: String!
